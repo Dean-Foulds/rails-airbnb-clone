@@ -1,15 +1,10 @@
-
-
 <%= simple_form_for(@home) do |f| %>
     <%= f.input :address, placeholder: "address" %>
-    <%= f.input :type, placeholder: "array of flat, maisonette, house" %>
-    <%= f.input :number_of_rooms, placeholder: "array of numbers" %>
-    <%= f.input :radius, placeholder: "select search distance" %>
-    <%= f.input :status, placeholder: "auto set to pending approval" %>
+    <%= f.input :type, collection: Home::TYPE  %>
+    <%= f.input :number_of_rooms, collection: Home::NUMBER_OF_ROOMS %>
+    <%= f.input :radius, collection: Home::RADIUS %>
+    <%= f.input :status, collection: Home::STATUS %>
     <%= f.input :comments, placeholder: "comments (change to text field" %>
     <%= f.button :submit, class: "btn btn-primary" %>
     <%= f.input :pictures, as: :attachinary %>
 <% end %>
-
-
-
