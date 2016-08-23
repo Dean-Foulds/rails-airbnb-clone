@@ -1,0 +1,13 @@
+
+
+<%= simple_form_for(@home) do |f| %>
+    <%= f.input :address, placeholder: "address" %>
+    <%= f.input :type, placeholder: "array of flat, maisonette, house" %>
+    <%= f.input :pictures, placeholder: "upload a picture" %>
+    <%= f.input :number_of_rooms, placeholder: "array of numbers" %>
+    <%= f.input :radius, placeholder: "select search distance" %>
+    <%= f.input :status, placeholder: "auto set to pending approval" %>
+    <%= f.input :comments, placeholder: "comments (change to text field" %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
