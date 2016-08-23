@@ -1,18 +1,12 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+<%= simple_form_for(@home) do |f| %>
+    <%= f.input :address, placeholder: "address" %>
+    <%= f.input :type, collection: Home::TYPE  %>
+    <%= f.input :pictures, placeholder: "upload a picture" %>
+    <%= f.input :number_of_rooms, collection: Home::NUMBER_OF_ROOMS %>
+    <%= f.input :radius, collection: Home::RADIUS %>
+    <%= f.input :status, collection: Home::STATUS %>
+    <%= f.input :comments, placeholder: "comments (change to text field" %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
 
-      <%= simple_form_for(@home) do |f| %>
-          <%= f.input :address, placeholder: "address" %>
-          <%= f.input :type, placeholder: "array of flat, maisonette, house" %>
-          <%= f.input :pictures, placeholder: "upload a picture" %>
-          <%= f.input :number_of_rooms, placeholder: "array of numbers" %>
-          <%= f.input :radius, placeholder: "select search distance" %>
-          <%= f.input :status, collection: Home::STATUS, prompt: "Choose one"  %>
-          <%= f.input :comments, placeholder: "comments (change to text field" %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
 
