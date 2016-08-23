@@ -8,7 +8,7 @@
           <%= f.input :pictures, placeholder: "upload a picture" %>
           <%= f.input :number_of_rooms, placeholder: "array of numbers" %>
           <%= f.input :radius, placeholder: "select search distance" %>
-          <%= f.input :status, collection: Status::STATUS, prompt: "Choose one"  %>
+          <%= f.input :status, collection: Home::STATUS, prompt: "Choose one"  %>
           <%= f.input :comments, placeholder: "comments (change to text field" %>
           <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
@@ -16,17 +16,3 @@
   </div>
 </div>
 
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-    <%= simple_form_for @animal do |f| %>
-        <%= f.input :name, placeholder: "Brutus"%>
-        <%= f.input :category, collection: Animal::CATEGORIES, prompt: "Choose one"  %>
-        <%= f.input :found_at, as: :string, placeholder: "16/08/2016", input_html: {id: "found-datepicker"} %>
-        <%= f.submit "Go", class: "btn btn-primary" %>
-    <% end %>
-    </div>
-  </div>
-</div>
