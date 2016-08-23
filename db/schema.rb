@@ -10,9 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160822164349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "home_id"
+    t.string   "date"
+    t.string   "time"
+    t.text     "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_bookings_on_home_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
+
+  create_table "home_reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "home_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_home_reviews_on_home_id", using: :btree
+    t.index ["user_id"], name: "index_home_reviews_on_user_id", using: :btree
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "address"
+    t.string   "type"
+    t.string   "pictures"
+    t.integer  "number_of_rooms"
+    t.integer  "radius"
+    t.string   "status"
+    t.string   "area"
+    t.string   "comments"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_id"], name: "index_homes_on_user_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  add_foreign_key "bookings", "homes"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "home_reviews", "homes"
+  add_foreign_key "home_reviews", "users"
+  add_foreign_key "homes", "users"
 end
