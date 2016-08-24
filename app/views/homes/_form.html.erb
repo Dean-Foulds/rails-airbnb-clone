@@ -4,6 +4,8 @@
     <%= f.input :number_of_rooms, collection: Home::NUMBER_OF_ROOMS %>
     <%= f.input :radius, collection: Home::RADIUS %>
     <%= f.input :status, collection: Home::STATUS %>
+    <%= f.input :comments, placeholder: "comments (change to text field)" %>
+    <%= f.input :pictures, class: "btn btn-primary", as: :attachinary %>
     <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 
