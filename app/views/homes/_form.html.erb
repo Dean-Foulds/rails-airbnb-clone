@@ -5,8 +5,7 @@
     <%= f.input :radius, collection: Home::RADIUS %>
     <%= f.input :status, collection: Home::STATUS %>
     <%= f.input :comments, placeholder: "comments (change to text field" %>
-    <%= f.input :pictures, class: "btn btn-danger", as: :attachinary%>
-    <%= f.button :submit, class: "btn btn-primary" %>
     <%= f.input :pictures, as: :attachinary, class: "attachinary-container" %>
+    <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 

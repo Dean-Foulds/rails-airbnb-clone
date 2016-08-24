@@ -1,6 +1,10 @@
 <h1 class="text-center">Current Homes</h1>
 
 
+
+
+
+
 <div class="container">
   <div class="row">
     <% @homes.each do |home| %>
@@ -13,6 +17,7 @@
 
     <div class="card-body">
       <%= @address %>
+
       <%= link_to "link", homes_path(@homes) %>
     </div>
   </div>
