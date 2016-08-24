@@ -3,6 +3,5 @@
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
-//= require plugin
 //= require bootstrap-sprockets
 //= require_tree .

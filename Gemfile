@@ -10,8 +10,9 @@ gem 'redis'
 gem 'devise'
 
 source 'https://rails-assets.org' do
-gem 'rails-assets-plugin'
+  gem "rails-assets-underscore"
 end
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
@@ -23,6 +24,8 @@ gem "cloudinary", "1.1.0"
 gem "attachinary", github: "assembler/attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
+gem "geocoder"
+gem "gmaps4rails"
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -34,5 +37,4 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
 
