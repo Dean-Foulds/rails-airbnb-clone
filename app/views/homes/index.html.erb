@@ -9,7 +9,7 @@
   <div class="row">
     <% @homes.each do |home| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card padded" style="background-image: url('<%= cl_image_path home.pictures.first.path %>')">
+        <div class="card padded" style="background-image: url('<%= home.pictures.first ? cl_image_path(home.pictures.first.path) : nil %>')">
           <div class="card-description">
             <%= home.address %>
             <%= home.status %>
