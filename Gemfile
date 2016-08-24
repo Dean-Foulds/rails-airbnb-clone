@@ -10,7 +10,7 @@ gem 'redis'
 gem 'devise'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-plugin'
+gem 'rails-assets-plugin'
 end
 gem 'sass-rails'
 gem 'jquery-rails'
