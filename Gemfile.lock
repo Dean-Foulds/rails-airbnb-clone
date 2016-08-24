@@ -156,6 +156,14 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.0.1)
       sprockets-rails (>= 2.0.0)
+<<<<<<< HEAD
+=======
+    rails-assets-plugin (3.1.0)
+      rails-assets-requirejs (~> 2.1.14)
+      rails-assets-requirejs-text (~> 2.0.12)
+    rails-assets-requirejs (2.1.22)
+    rails-assets-requirejs-text (2.0.15)
+>>>>>>> master
     rails-assets-underscore (1.8.3)
     rails-dom-testing (2.0.1)
       activesupport (>= 4.2.0, < 6.0)
@@ -242,6 +250,10 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.0.0.1)
+<<<<<<< HEAD
+=======
+  rails-assets-plugin!
+>>>>>>> master
   rails-assets-underscore!
   redis
   sass-rails
