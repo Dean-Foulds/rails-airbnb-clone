@@ -30,12 +30,15 @@
       $(document).on('ready', function() {
         var handler = Gmaps.build('Google', { markers: { clusterer: undefined }});
         handler.buildMap({ internal: { id: 'map' } }, function(){
-          markers = handler.addMarkers([
-            {
-              "lat": <% f @home.latitude %>,
-              "lng": <% f @home.longitude %>,
-              "infowindow": "<h1>Aix - Marseille</h1><p><img src='https://d1gofzrmx0fcbg.cloudfront.net/production/cities/city_pictures/000/000/008/thumbnail/marseille.jpg?1445520529' height='200'></p>"
-            }
+          @home_coordinates = handler.addMarkers([
+            <% @home_coordinates %>
+            // {
+            //   // "lat": <% @home.latitude %>,
+            //   // "lng": <% @home.longitude %>,
+            //   // "lat": 33.8937913,
+            //   // "lng": 35.5017767,
+            //   "infowindow": "<h1>Aix - Marseille</h1><p><img src='https://d1gofzrmx0fcbg.cloudfront.net/production/cities/city_pictures/000/000/008/thumbnail/marseille.jpg?1445520529' height='200'></p>"
+            // }
           ]);
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
