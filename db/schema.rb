@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 20160824120308) do
     t.string   "comments"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "pictures"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "pictures"
     t.index ["user_id"], name: "index_homes_on_user_id", using: :btree
   end
 
