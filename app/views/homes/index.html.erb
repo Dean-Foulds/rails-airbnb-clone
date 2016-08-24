@@ -6,11 +6,8 @@
     <% @homes.each do |home| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card text-center">
-          <% if home.address %>
-            <div class="card-header" style="background-image: url('<%= image_path home.address %>')">
-            </div>
-          <% else %>
-            <div class="card-header" style="background-image: url('http://www.seriouseats.com/images/2014/11/20141104-cocktail-party-old-fashioneds-holiday-vicky-wasik-3.jpg')">
+          <% if home.pictures %>
+            <div class="card-header" style="background-image: url('<%= image_path home.pictures %>')">
             </div>
           <% end %>
           <div class="card-body">

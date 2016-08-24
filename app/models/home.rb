@@ -8,6 +8,7 @@ class Home < ApplicationRecord
   NUMBER_OF_ROOMS = %w(1 2 3 4)
   RADIUS = %w(1 5 10 25)
 
+  validates :address, presence: true
   # validates :status, inclusion: { in: STATUS }
   # validates :type, inclusion: { in: TYPE }
   # validates :number_of_rooms, inclusion: { in: NUMBER_OF_ROOMS }
