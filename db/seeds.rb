@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Home.destroy_all
 
 require "open-uri"
 
@@ -42,6 +43,11 @@ homes = [
   {
     address: "8A Watershaugh Rd, Warkworth, Morpeth NE65 0TU, UK",
     pictures: [ "http://i.telegraph.co.uk/multimedia/archive/02655/housing_2655833b.jpg" ]
+  },
+
+  {
+    address: "3 The Saplings, Walmley",
+    pictures: ["https://upload.wikimedia.org/wikipedia/commons/c/c0/Gingerbread_House_Essex_CT.jpg"]
   }
 
 ]

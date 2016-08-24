@@ -1,11 +1,21 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <%= @home.address %>
-        <%= link_to 'Back', homes_path %>
-        <% @home.pictures.each do |picture| %>
-          <%= cl_image_tag picture.path, width: 300, height: 200, crop: :fill %>
-        <% end %>
+
+  <% if xxxxx
+    main_home_picture = cl_image_path @home.pictures.first.path
+  else
+    main_home_picture =
+  end
+
+
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= main_home_picture %>');">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="banner-content">
+          <p><%= @home.address %></p>
+          <%= link_to 'Back', homes_path %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
