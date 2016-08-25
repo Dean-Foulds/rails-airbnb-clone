@@ -11,30 +11,41 @@
         <div class="banner-content">
           <p><%= @home.address %></p>
           <%= link_to 'Back', homes_path %>
+          <div class="col-xs-12 col-sm-6 col-sm-offset-9">
+            <% if current_user %>
+            <%= render 'booking_form' %>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 
 <% if @hash.first[:lat] %>
-  <div id="map" style="height: 300px; width: 100%"></div>
+<div id="map" style="height: 300px; width: 100%"></div>
 
-  <% content_for(:after_js) do %>
-    <script>
-      $(document).on('ready', function() {
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(14);
-          }
-        });
-      });
-    </script>
-  <% end %>
+<% content_for(:after_js) do %>
+<script>
+  $(document).on('ready', function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
+    });
+  });
+</script>
 <% end %>
+<% end %>
+
+
+
+
+
