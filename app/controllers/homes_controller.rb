@@ -7,8 +7,8 @@ class HomesController < ApplicationController
 
   def show # GET /homes/by ID
     @home = Home.find(params[:id])
-    @hash = [ { lat: 54.656888, lng: -3.358805 } ]
-    # @hash = [ { lat: @home.latitude, lng: @home.longitude } ]
+    # @hash = [ { lat: 54.6568, lng: -3.358805 } ]
+    @hash = [ { lat: @home.latitude, lng: @home.longitude } ]
   end
 
   def new  # GET /homes/new
