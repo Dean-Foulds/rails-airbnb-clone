@@ -58,9 +58,14 @@
 
     <% end %>
 
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Add a home"), new_home_path, class: "btn btn-primary btn-md" %>
+    <div>
+    <%= link_to t(".top_call_to_action", default: "All properties"), homes_path, class: "btn btn-sm btn-primary" %>
+    </div>
 
+    <div>
+    <!-- Button (call-to-action) -->
+    <%= link_to t(".top_call_to_action", default: "Add a home"), new_home_path, class: "btn btn-sm btn-primary" %>
+    </div>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
