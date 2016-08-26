@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20160826140646) do
     t.string   "type"
     t.integer  "number_of_rooms"
     t.integer  "radius"
-    t.string   "status"
+    t.string   "status",          default: "available"
     t.string   "area"
     t.string   "comments"
     t.datetime "created_at",                            null: false
