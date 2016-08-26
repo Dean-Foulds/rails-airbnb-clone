@@ -7,7 +7,7 @@ class CreateHomes < ActiveRecord::Migration[5.0]
       t.string :pictures
       t.integer :number_of_rooms
       t.integer :radius
-      t.string :status
+      t.string :status, :default => "available"
       t.string :area
       t.string :comments
 
