@@ -1,4 +1,5 @@
 class Home < ApplicationRecord
+  has_many :bookings
   belongs_to :user
   has_attachments :pictures, maximum: 3
   geocoded_by :address
