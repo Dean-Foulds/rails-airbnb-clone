@@ -8,6 +8,11 @@
   margin-bottom: 10px;
   border: 1 solid black;
 }
+.card-gray {
+  background: rgb(230,230,230);
+  position: relative;
+  height: 260px;
+}
 .card-user {
   position: absolute;
   right: 10px;
@@ -20,16 +25,12 @@
   font-size: 10px;
   text-transform: uppercase;
 }
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
 .card-description h2 {
   font-size: 24px;
 }
-.card-description p {
-  font-size: 13px;
+.card-details {
+  padding: 10px;
+  font-size: 12px;
   }
 .card-link {
   position: absolute;
@@ -41,9 +42,9 @@
   opacity: 0;
 }
 .card-link:hover{
-  opacity: 0.1;
+  opacity: 0.3;
 }
-
 .card.padded {
   margin-top: 2em;
+  height: 150px;
 }
