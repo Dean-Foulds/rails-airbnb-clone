@@ -2,66 +2,77 @@
     main_home_picture = cl_image_path @home.pictures.first.path
   else
     main_home_picture = ""
-  end
-  %>
+  end %>
 
 
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= main_home_picture %>');">
   <div class="container">
     <div class="row">
-      <div class="col-sm-4 col-sm-offset-4">
+      <div class="">
         <div class="banner-content">
-          <p><%= @home.address %></p>
-          <p>
-            <% if @home.status == "" %>
-              No status
-            <% else %>
-              <%= @home.status %>
-            <% end %>
-          </p>
+          <div class="text-wrapper">
+            <p><%= @home.address %></p>
+            <p>
+              <% if @home.status == "" %>
+                No status
+              <% else %>
+                <%= @home.status %>
+              <% end %>
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="col-sm-4 col-sm-offset-4 text-left">
+      <div class="text-left">
         <% if current_user %>
-          <%= render 'homes/booking_form' %>
+          <div class="form-wrapper">
+            <%= render 'homes/booking_form' %>
+          </div>
         <% end %>
       </div>
     </div>
   </div>
-</div>
 
-<% if @hash && @hash.first[:lat] %>
-  <div id="map" style="height: 300px; width: 100%"></div>
 
-  <% content_for(:after_js) do %>
-    <script>
-      $(document).on('ready', function() {
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(14);
-          }
+
+
+
+
+<div class="map-wrapper">
+
+  <% if @hash && @hash.first[:lat] %>
+    <div id="map" style="height: 100vh; width: 100%"></div>
+
+    <% content_for(:after_js) do %>
+      <script>
+        $(document).on('ready', function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(14);
+            }
+          });
         });
-      });
-    </script>
+      </script>
+    <% end %>
   <% end %>
-<% end %>
 
 
-<%= content_for(:after_js) do %>
-<script>
-  $(function(){
-    $('.datepicker').datepicker({
-      format: 'dd-mm-yyyy',
-      startDate: '+0d',
-      autoclose: true
-    });
-  })
-</script>
-<% end %>
+  <%= content_for(:after_js) do %>
+  <script>
+    $(function(){
+      $('.datepicker').datepicker({
+        format: 'dd-mm-yyyy',
+        startDate: '+0d',
+        autoclose: true
+      });
+    })
+  </script>
+  <% end %>
+</div>
+</div>

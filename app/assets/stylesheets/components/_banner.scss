@@ -1,11 +1,12 @@
 .banner {
   color: white;
-  text-align: center;
+  text-align: left;
   height: 100vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .banner h1 {
   font-size: 50px;
@@ -17,4 +18,28 @@
   font-weight: lighter;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 50px;
+}
+.map-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100vh;
+}
+
+.form-wrapper {
+  background: rgb(230,230,230);
+  padding: 20px;
+  width: 200px;
+}
+.text-wrapper {
+  width: 200px;
+  background: blue;
+}
+.booking-wrapper {
+margin: 20px; 
+	padding: 20px;
+  width: 400px;
+  background: #cfd7df;
+  
 }
