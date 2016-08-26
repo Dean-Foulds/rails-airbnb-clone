@@ -1,31 +1,38 @@
+
+
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "http://icons.iconarchive.com/icons/double-j-design/origami-colored-pencil/96/blue-home-icon.png" %>
+    <%= image_tag "http://icons.iconarchive.com/icons/ergosign/free-spring/48/ladybird-icon.png" %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- Search form -->
-    <!-- <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form> -->
+    <!-- Menu form -->
+    <div class="navbar-wagon-item">
+      <%= link_to t(".top_call_to_action", default: "Agents"), homes_path, class: "navbar-wagon-link" %>
+    </div>
+
+
+    <div class="navbar-wagon-item">
+      <%= link_to t(".top_call_to_action", default: "Landlords"), homes_path, class: "navbar-wagon-link" %>
+    </div>
+
+    <div class="navbar-wagon-item">
+      <%= link_to t(".top_call_to_action", default: "All properties"), homes_path, class: "navbar-wagon-link" %>
+    </div>
+
+    <div class="navbar-wagon-item">
+      <%= link_to t(".top_call_to_action", default: "Add a home"), new_home_path, class: "navbar-wagon-link" %>
+    </div>
+
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">
-        </div>
-        </div>
-      <% end %>
+
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -55,17 +62,7 @@
 
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
     <% end %>
-
-    <div>
-    <%= link_to t(".top_call_to_action", default: "All properties"), homes_path, class: "btn btn-sm btn-primary" %>
-    </div>
-
-    <div>
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Add a home"), new_home_path, class: "btn btn-sm btn-primary" %>
-    </div>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
@@ -80,4 +77,3 @@
     </div>
   </div>
 </div>
-
