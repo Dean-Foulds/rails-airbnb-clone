@@ -25,6 +25,8 @@
       <div class="col-sm-4 col-sm-offset-4 text-left">
         <% if current_user %>
           <%= render 'homes/booking_form' %>
+        <% else %>
+          <p>Log in if you want to book an appointment.</p>
         <% end %>
       </div>
     </div>
