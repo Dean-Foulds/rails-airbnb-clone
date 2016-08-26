@@ -1,17 +1,26 @@
 
-<%= simple_form_for [@home, Booking.new] do |f| %>
-  <%= f.input :date, as: :string, label: 'Date required', input_html: { class: "datepicker-saul" }, required: true %>
-  <%= f.button :submit , "Ask for a booking", class: "text-center btn btn-primary btn-block"  %>
+<%= simple_form_for([@home, @booking]) do |f| %>
+<%= f.input :starts_at, as: :string, input_html: { data: { provide: :datepicker } } %>
+<%= f.input :starts_at_time, placeholder: "14.00", as: :time, minute_step: 15 %>
+
+<%= f.button :submit , "Please can I make a booking", class: "text-center btn btn-primary btn-success"  %>
 <% end %>
 
 <%= content_for(:after_js) do %>
-  <script>
-    $(function(){
-      $('.datepicker-saul').datepicker({
-        format: 'mm-dd-yyyy',
-        startDate: '+0d',
-        autoclose: true
-      });
-    })
-  </script>
+<script>
+  $(function(){
+    $('.datepicker').datepicker({
+      format: 'dd-mm-yyyy',
+      startDate: '+0d',
+      autoclose: true
+    });
+  })
+</script>
 <% end %>
+
+<!-- why is home_id not included in form? -->
+<!-- in booking model - review self availability method? -->
+
+
+
+

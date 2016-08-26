@@ -1,26 +1,68 @@
 class BookingsController < ApplicationController
-  # before_filter :authenticate_user!
+
+  before_action :set_booking, only: [:show, :destroy]
+
+  def index
+    @bookings = Booking.all
+  end
 
   def new
-    @booking = Booking.new(bookings_params)
   end
 
   def create
     @home = Home.find(params[:home_id])
     @booking = Booking.new(bookings_params)
     @booking.user = current_user
-
-    if Booking.available(@booking)
-      @booking.save
-      redirect_to homes_path, notice: "Viewing booked! An email confirmation has been sent to you and the landlord."
+    @booking.home = @home
+    @booking.home = @home
+    if @booking.save
+      redirect_to booking_path(@booking)
     else
-      redirect_to :back, notice: "This booking is not avaiable! Try another home"
+      render "homes/show"
     end
   end
 
-private
+  def show
+
+  end
+
+  def destroy
+    @booking.destroy
+  end
+
+  private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def bookings_params
-    params.require(:booking).permit(:date, :home_id, :user_id)
+    params.require(:booking).permit(:starts_at, :starts_at_time, :user_id)
   end
 end
+
+# def send_booking_confirmation
+  #   BookingMailer.booking_confirmation(self).deliver
+  # end
+
+# ////////
+  # # after_create :send_booking_confirmation
+
+  # def self.home_booked_by_user(home, user)
+  #   Booking.exists?(home_id: home.id, user_id: user.id)
+  # end
+
+  # def self.available(booking)
+  #   if booking.starts_at
+  #     this_home_bookings = Booking.where(home_id: booking.home_id)
+  #     this_home_bookings.each do |booking|
+  #       # if home.status !== "available"
+  #       #   return false
+  #       # else
+  #       #   booking.date
+  #       # end
+  #       # booking.save
+  #     end
+  #   end
+  # end
+
