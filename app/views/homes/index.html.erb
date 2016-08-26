@@ -4,23 +4,19 @@
 <div class="container">
   <div class="row">
     <% @homes.each do |home| %>
-      <div class="col-xs-12 col-sm-3">
+      <div class="col-xs-6 col-sm-3 col-md-2">
         <div class="card-gray">
           <div class="card padded" style="background-image: url('<%= home.pictures.first ? cl_image_path(home.pictures.first.path) : nil %>')">
-            <div class="card-description">
-              <%= home.address %>
-              <%= home.status %>
-            </div>
-            <%= link_to "#", home_path(home), class: "card-link" %>
           </div>
+          <div class="card-details">
+            <%= home.address %>
+            <%= home.status %>
+          </div>
+            <%= link_to "#", home_path(home), class: "card-link" %>
         </div>
       </div>
     <% end %>
 
-
-<div class="text-center padded">
-  <%= link_to "Add a property", new_home_path, class: "btn btn-primary" %>
-</div>
 
 
 
