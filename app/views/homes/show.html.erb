@@ -1,26 +1,21 @@
-  <% if @home.pictures.first
-    main_home_picture = cl_image_path @home.pictures.first.path
-  else
-    main_home_picture = ""
+ <% if @home.pictures.first
+  main_home_picture = cl_image_path @home.pictures.first.path
+else
+  main_home_picture = ""
   end %>
 
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= main_home_picture %>');">
-  <div class="container">
-    <div class="row">
-      <div class="">
-        <div class="banner-content">
-          <div class="text-wrapper">
-            <p><%= @home.address %></p>
-            <p>
-              <% if @home.status == "" %>
-                No status
-              <% else %>
-                <%= @home.status %>
-              <% end %>
-            </p>
-          </div>
-        </div>
+<div class="container">
+  <!-- START THE FEATURETTES -->
+
+
+    <div class="col-md-2">
+    </div>
+
+    <div class="row feature-box col-md-8">
+
+    <div class="col-md-4">
+      <div class="featurette-img-sm home-image-thumbnail" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 100%, rgba(0,36,61,0.0) 100%), url('<%= main_home_picture %>') ;">
       </div>
 
       <div class="text-left">
@@ -32,49 +27,80 @@
           <p>Log in if you want to book an appointment.</p>
         <% end %>
       </div>
+
+
     </div>
+
+
+    <div class="col-md-8">
+      <h2 class="featurette-heading"> <%= @home.address %> <% if @home.status == "" %>
+        No status
+        <% else %>
+        <%= @home.status %>
+        <% end %></h2>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p> <br>
+
+        <div class="text-center">
+           <% if current_user %>
+           <%= link_to "Delete ", homes_path, :class => "btn btn-primary",
+           method: :delete,
+           data: { confirm: "Are you sure?" } %>
+           <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary" %>
+           <% end %>
+
+         </div> <br>
+
+           <div class="featurette-image">
+        <!--           <div class="map-wrapper"> -->
+        <% if @hash && @hash.first[:lat] %>
+          <div id="map" style="height: 100%; width: 100%">
+          </div>
+        <% end %>
+        <!--  </div> -->
+      </div>
+
+
+
+    </div>
+    </div>
+
+    <div class="col-md-2">
+    </div>
+
+
+
   </div>
-
-
-
-
-
-
-<div class="map-wrapper">
-
-  <% if @hash && @hash.first[:lat] %>
-    <div id="map" style="height: 100vh; width: 100%"></div>
-
-    <% content_for(:after_js) do %>
-      <script>
-        $(document).on('ready', function() {
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function() {
-            markers = handler.addMarkers(<%= raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            if (markers.length == 0) {
-              handler.getMap().setZoom(2);
-            } else if (markers.length == 1) {
-              handler.getMap().setZoom(14);
-            }
-          });
-        });
-      </script>
-    <% end %>
-  <% end %>
-
-
-  <%= content_for(:after_js) do %>
-  <script>
-    $(function(){
-      $('.datepicker').datepicker({
-        format: 'dd-mm-yyyy',
-        startDate: '+0d',
-        autoclose: true
-      });
-    })
-  </script>
-  <% end %>
+  <!-- /END THE FEATURETTES -->
 </div>
-</div>
+
+
+
+<% content_for(:after_js) do %>
+<script>
+$(document).on('ready', function() {
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: { id: 'map' } }, function() {
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    if (markers.length == 0) {
+      handler.getMap().setZoom(2);
+    } else if (markers.length == 1) {
+      handler.getMap().setZoom(14);
+    }
+  });
+});
+</script>
+<% end %>
+
+<%= content_for(:after_js) do %>
+<script>
+$(function(){
+  $('.datepicker').datepicker({
+    format: 'dd-mm-yyyy',
+    startDate: '+0d',
+    autoclose: true
+  });
+})
+</script>
+<% end %>
