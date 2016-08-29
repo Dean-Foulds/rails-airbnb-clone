@@ -18,13 +18,8 @@
           <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
           <%= f.input :password_confirmation, required: false %>
           <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-          <%= f.input :avatar, as: :attachinary %>
+
         </div>
-
-
-          <% if @user.avatar? %>
-            <%= cl_image_tag(@user.avatar.path, { size: '50x50', crop: :thumb, gravity: :face }) %>
-          <% end %>
 
 
         <div class="form-actions">
