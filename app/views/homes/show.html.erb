@@ -4,31 +4,52 @@ else
   main_home_picture = ""
   end %>
 
+
 <div class="container">
   <!-- START THE FEATURETTES -->
-  <div class="row">
 
-    <div class="col-md-3">
-      <div class="featurette-img-sm home-image-thumbnail" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= main_home_picture %>') ;">
+
+    <div class="col-md-2">
+    </div>
+
+    <div class="row feature-box col-md-8">
+
+    <div class="col-md-4">
+      <div class="featurette-img-sm home-image-thumbnail" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 100%, rgba(0,36,61,0.0) 100%), url('<%= main_home_picture %>') ;">
       </div>
-    <div class="featurette-image">
+      <div class="featurette-image">
         <!--           <div class="map-wrapper"> -->
         <% if @hash && @hash.first[:lat] %>
           <div id="map" style="height: 100%; width: 100%">
           </div>
         <% end %>
         <!--  </div> -->
-    </div>
+      </div>
     </div>
 
 
-    <div class="col-md-6">
+    <div class="col-md-8">
       <h2 class="featurette-heading"> <%= @home.address %> <% if @home.status == "" %>
         No status
         <% else %>
         <%= @home.status %>
         <% end %></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p> <br>
+
+        <div class="text-center">
+           <% if current_user %>
+           <%= link_to "Delete ", homes_path, :class => "btn btn-primary",
+           method: :delete,
+           data: { confirm: "Are you sure?" } %>
+           <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary" %>
+           <% end %>
+           <%= link_to "Arrange viewing ", "homes/booking_form_path", :class => "btn btn-primary" %>
+         </div>
+
+    </div>
+    </div>
+
+    <div class="col-md-2">
     </div>
 
 
