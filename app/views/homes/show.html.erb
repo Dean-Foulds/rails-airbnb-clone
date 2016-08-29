@@ -17,14 +17,18 @@ else
     <div class="col-md-4">
       <div class="featurette-img-sm home-image-thumbnail" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 100%, rgba(0,36,61,0.0) 100%), url('<%= main_home_picture %>') ;">
       </div>
-      <div class="featurette-image">
-        <!--           <div class="map-wrapper"> -->
-        <% if @hash && @hash.first[:lat] %>
-          <div id="map" style="height: 100%; width: 100%">
+
+      <div class="text-left">
+        <% if current_user %>
+          <div class="form-wrapper">
+            <%= render 'homes/booking_form' %>
           </div>
+        <% else %>
+          <p>Log in if you want to book an appointment.</p>
         <% end %>
-        <!--  </div> -->
       </div>
+
+
     </div>
 
 
@@ -43,8 +47,19 @@ else
            data: { confirm: "Are you sure?" } %>
            <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary" %>
            <% end %>
-           <%= link_to "Arrange viewing ", "homes/booking_form_path", :class => "btn btn-primary" %>
-         </div>
+
+         </div> <br>
+
+           <div class="featurette-image">
+        <!--           <div class="map-wrapper"> -->
+        <% if @hash && @hash.first[:lat] %>
+          <div id="map" style="height: 100%; width: 100%">
+          </div>
+        <% end %>
+        <!--  </div> -->
+      </div>
+
+
 
     </div>
     </div>

@@ -64,14 +64,14 @@
 
 
 
-          <div class="text-left">
-            <% if current_user %>
-              <div class="form-wrapper">
-                <%= render 'homes/booking_form' %>
-              </div>
-            <% else %>
-              <p>Log in if you want to book an appointment.</p>
-            <% end %>
+        <div class="text-left">
+          <% if current_user %>
+            <div class="form-wrapper">
+              <%= render 'homes/booking_form' %>
+            </div>
+          <% else %>
+            <p>Log in if you want to book an appointment.</p>
+          <% end %>
         </div>
       </div>
     </div>
