@@ -38,6 +38,6 @@ end
   end
 
   def home_params
-    params.require(:home).permit(:address, :pictures => [])
+    params.require(:home).permit(:address, :email, :password, :pictures => [])
   end
 end
