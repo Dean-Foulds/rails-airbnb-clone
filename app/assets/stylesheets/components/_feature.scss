@@ -9,3 +9,32 @@
   font-size: 15px;
   font-weight: lighter;
 }
+
+// FEATURES
+
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+.lead {
+  font-weight: 300;
+  line-height: 1.3;
+  font: 16px;
+}
+.featurette-image {
+  height:200px;
+  padding: 0px;
+}
+.featurette-img-sm {
+  background-size: cover !important;
+  height: 200px;
+  width: 200px;
+}
+.featurette-heading {
+    font-size: 30px;
+}
+
+.home-image-thumbnail {
+    width: 100% !important;
+}
