@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'pages/contact'
+  get 'pages/about'
+
   resources :bookings, only: :show
 
   resources :homes do
