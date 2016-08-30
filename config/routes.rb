@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'pages/contact'
+  get 'pages/about'
+
   resources :bookings, only: :show
 
   resources :homes do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:index, :new, :create]
   end
 
   devise_for :users

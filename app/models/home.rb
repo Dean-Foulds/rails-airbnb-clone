@@ -11,7 +11,9 @@ class Home < ApplicationRecord
   NUMBER_OF_ROOMS = %w(1 2 3 4)
 
 
-  validates :address, :post_code, presence: true
+  validates :address, presence: true
+  validates :post_code, presence: true
+
   # validates :status, inclusion: { in: STATUS }
   # validates :type, inclusion: { in: TYPE }
   # validates :number_of_rooms, inclusion: { in: NUMBER_OF_ROOMS }

@@ -7,7 +7,6 @@ class HomesController < ApplicationController
   end
 
   def show # GET /homes/by ID
-    @home = Home.find(params[:id])
     @booking = Booking.new
     # @hash = [ { lat: 54.6568, lng: -3.358805 } ]
     @hash = [ { lat: @home.latitude, lng: @home.longitude } ]
@@ -27,15 +26,17 @@ class HomesController < ApplicationController
     else
       render :new
     end
-end
+  end
 
   def edit
   end
 
   def update
-    @home.update(home_params)
+    @home.update!(home_params)
+
     if current_user
       @home.save
+      @home.update(home_params)
       redirect_to home_path(@home)
     end
   end
@@ -55,6 +56,6 @@ end
   end
 
   def home_params
-    params.require(:home).permit(:address, :email, :password, :pictures => [])
+    params.require(:home).permit(:address, :post_code, :email, :password, :pictures => [])
   end
 end
