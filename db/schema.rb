@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829134805) do
+
+ActiveRecord::Schema.define(version: 20160829162906) do
+
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +67,7 @@ ActiveRecord::Schema.define(version: 20160829134805) do
     t.string   "type"
     t.integer  "number_of_rooms"
     t.integer  "radius"
-    t.string   "status"
+    t.string   "status",                 default: "available"
     t.string   "area"
     t.string   "comments"
     t.datetime "created_at",                                   null: false
@@ -75,6 +79,7 @@ ActiveRecord::Schema.define(version: 20160829134805) do
     t.integer  "rent_per_week"
     t.integer  "rent_per_month"
     t.boolean  "rshared_and_hmo_status", default: true
+    t.string   "post_code"
     t.index ["user_id"], name: "index_homes_on_user_id", using: :btree
   end
 
