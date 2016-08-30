@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
-  before_action :set_home, only: [:show]
+  before_action :authenticate_user!
+  before_action :set_home, only: [:show, :edit, :update, :destroy]
 
   def index# GET /index
     @homes = Home.all
@@ -26,6 +27,22 @@ class HomesController < ApplicationController
       render :new
     end
   end
+
+  def edit
+  end
+
+  def update
+    @home.update(home_params)
+    if current_user
+      @home.save
+      redirect_to home_path(@home)
+    end
+  end
+
+  def destroy
+    @home.destroy
+    redirect_to homes_path
+end
 
   private
 
