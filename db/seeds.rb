@@ -19,7 +19,7 @@ properties = JSON.parse(property_serialized)
 properties["response"]["listings"].each do |p|
   puts "creating #{p["title"]}"
   home = Home.new(latitude: p["latitude"], longitude: p["longitude"], address: p["title"])
-  home.pictures = [ open(p["image_url"]) ] unless p["image_url"].blank?
+  home.pictures = [ open(p["img_url"]) ] unless p["img_url"].blank?
   home.save!
 end
 
