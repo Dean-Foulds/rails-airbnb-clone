@@ -246,6 +246,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.0.5)
+  nokogiri
   pg
   pry-byebug
   pry-rails

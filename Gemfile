@@ -27,6 +27,7 @@ gem "jquery-fileupload-rails"
 gem "coffee-rails"
 gem "geocoder"
 gem "gmaps4rails"
+gem "nokogiri"
 gem "letter_opener", group: :development
 
 group :development, :test do

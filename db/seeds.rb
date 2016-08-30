@@ -8,42 +8,52 @@
 
 
 require "open-uri"
+require "nokogiri"
 require "json"
 
 Home.destroy_all
 
-puts "Fetching Properties from API..."
-url = "http://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=london"
-property_serialized = open(url).read
-properties = JSON.parse(property_serialized)
-properties["response"]["listings"].each do |p|
-  puts "creating #{p["title"]}"
-  home = Home.new(latitude: p["latitude"], longitude: p["longitude"], address: p["title"])
-  home.pictures = [ open(p["img_url"]) ] unless p["img_url"].blank?
-  home.save!
-end
 
-
+# url = "http://www.dssmove.co.uk/property/search/?list_type=list&sortby=price&order=desc&agent_id=&pcode=&county=&location=London&radius=&bed-min=&bed-max=&type=flats-and-bedsits&price-min=&price-max=900"
+# html_file = open(url)
+# doc = Nokogiri::HTML(html_file)
+# doc.search("#properties.container").each do |property|
+#   # puts "creating property #{property}"
+#   #sleep (1.2)
+#   address =  property.search("h4 a")[0].text
+#   picture = property.search("div a img")[0].attr("src")
+#   home = Home.new(address: address)
+#   home.pictures = open(picture) unless picture.blank?
+#   home.save(validate: false)
+# end
 
 
 
 # puts "Fetching Properties from API..."
-# url = "http://api.zoopla.co.uk/api/v1/property_listings.json?country=england&api_key=#{ENV['ZOOPLA_API_KEY']}"
+# url = "http://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=hackney"
 # property_serialized = open(url).read
 # properties = JSON.parse(property_serialized)
-# properties["listing"].each do |p|
-#   puts "Creating home at #{p["short_description"]}"
-#   home = Home.new(latitude: p["latitude"], longitude: p["longitude"], address: p["displayable_address"])
-#   home.pictures = [ open(p["image_url"]) ] unless p["image_url"].blank?
-#   home.save!
+# properties["response"]["listings"].each do |p|
+#   puts "creating #{p["title"]}"
+#   home = Home.new(latitude: p["latitude"], longitude: p["longitude"], address: p["title"])
+#   home.pictures = [ open(p["img_url"]) ] unless p["img_url"].blank?
+#   home.save(validate: false)
 # end
 
 
 
 
 
-
-
+puts "Fetching Properties from API..."
+url = "http://api.zoopla.co.uk/api/v1/property_listings.json?country=england&api_key=#{ENV['ZOOPLA_API_KEY']}"
+property_serialized = open(url).read
+properties = JSON.parse(property_serialized)
+properties["listing"].each do |p|
+  puts "Creating home at #{p["short_description"]}"
+  home = Home.new(latitude: p["latitude"], longitude: p["longitude"], address: p["displayable_address"])
+  home.pictures = [ open(p["image_url"]) ] unless p["image_url"].blank?
+  home.save(validate: false)
+end
 
 
 
