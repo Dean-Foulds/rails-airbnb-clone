@@ -3,10 +3,15 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = Booking.all
+    @homes = Home.all
+    @home = Home.find(params[:home_id])
+    @bookings = @home.bookings
   end
 
   def new
+    @home = Home.find(params[:home_id])
+    @booking = Booking.new
+    @booking.home = @home
   end
 
   def create
@@ -14,9 +19,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     @booking.user = current_user
     @booking.home = @home
-    @booking.home = @home
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to home_bookings_path(@home)
     else
       render "homes/show"
     end

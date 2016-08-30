@@ -5,42 +5,42 @@ else
   end %>
 
 
+
   <!-- FEATURETTES -->
   <div class="banner-page">
-  <div class="container">
-    <div class="col-md-2"> <!-- This is a spacer column rather than an offset? -->
-    </div>
+    <div class="container">
+      <div class="col-md-2"> <!-- This is a spacer column rather than an offset? -->
+      </div>
 
       <div class="row feature-box col-md-8">
 
-          <div class="col-md-4">
-            <div class="featurette-img-sm home-image-thumbnail" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 100%, rgba(0,36,61,0.0) 100%), url('<%= main_home_picture %>') ;">
+        <div class="col-md-4">
+          <div class="featurette-img-sm home-image-thumbnail" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 100%, rgba(0,36,61,0.0) 100%), url('<%= main_home_picture %>') ;">
+          </div>
+          <br>
+          <div class="text-left">
+            <% if current_user %>
+            <div class="form-wrapper">
+              <%= render 'homes/booking_form' %>
             </div>
-            <br>
-            <div class="text-left">
-              <% if current_user %>
-                <div class="form-wrapper">
-                  <%= render 'homes/booking_form' %>
-                </div>
-              <% else %>
-                <p>Log in if you want to book an appointment.</p>
-              <% end %>
-            </div>
+            <% else %>
+            <p>Log in if you want to book an appointment.</p>
+            <% end %>
+          </div>
 
+        </div>
 
-      </div>
+        <div class="col-md-8">
+          <h2 class="featurette-heading"> <%= @home.address %> <%= @home.post_code %> <% if @home.status == "" %>
+            No status
+            <% else %>
+            <%= @home.status %>
+            <% end %></h2>
+            <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p> <br>
 
-      <div class="col-md-8">
-        <h2 class="featurette-heading"> <%= @home.address %> <% if @home.status == "" %>
-          No status
-          <% else %>
-          <%= @home.status %>
-          <% end %></h2>
-          <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p> <br>
-
-          <div class="text-center">
+            <div class="text-center">
              <% if current_user %>
-             <%= link_to "Delete ", homes_path, :class => "btn btn-primary",
+             <%= link_to "Delete", home_path(@home), :class => "btn btn-primary",
              method: :delete,
              data: { confirm: "Are you sure?" } %>
              <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary" %>
@@ -48,53 +48,55 @@ else
 
            </div> <br>
 
-             <div class="featurette-image">
-          <!--           <div class="map-wrapper"> -->
-          <% if @hash && @hash.first[:lat] %>
+           <div class="featurette-image">
+            <!--           <div class="map-wrapper"> -->
+            <% if @hash && @hash.first[:lat] %>
             <div id="map" style="height: 100%; width: 100%">
             </div>
-          <% end %>
-          <!--  </div> -->
-        </div>
-
-
-
-            </div>
+            <% end %>
+            <!--  </div> -->
           </div>
-        <div class="col-md-2"> <!-- This is a spacer column rather than an offset? -->
+
         </div>
-      </div> <!-- end features -->
-    </div> <!-- end container -->
-  </div> <!-- end wrapper -->
+
+      </div>
+    </div>
+  </div> <br>
+
+<div class="col-md-2"> <!-- This is a spacer column rather than an offset? -->
+</div>
+</div> <!-- end features -->
+</div> <!-- end container -->
+</div> <!-- end wrapper -->
 
 
 
 <% content_for(:after_js) do %>
 <script>
-$(document).on('ready', function() {
-  var handler = Gmaps.build('Google');
-  handler.buildMap({ internal: { id: 'map' } }, function() {
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    if (markers.length == 0) {
-      handler.getMap().setZoom(2);
-    } else if (markers.length == 1) {
-      handler.getMap().setZoom(14);
-    }
+  $(document).on('ready', function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
+    });
   });
-});
 </script>
 <% end %>
 
 <%= content_for(:after_js) do %>
 <script>
-$(function(){
-  $('.datepicker').datepicker({
-    format: 'dd-mm-yyyy',
-    startDate: '+0d',
-    autoclose: true
-  });
-})
+  $(function(){
+    $('.datepicker').datepicker({
+      format: 'dd-mm-yyyy',
+      startDate: '+0d',
+      autoclose: true
+    });
+  })
 </script>
 <% end %>
