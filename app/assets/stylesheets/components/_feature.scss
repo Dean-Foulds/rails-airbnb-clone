@@ -3,10 +3,12 @@
   padding-top: 70px;
 }
 .feature-box {
-  background-color: #DFEDFF;
   margin: 50px 0;
   padding: 30px;
- }
+  background-color: #ffffff;
+  opacity: 1.0;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
 .features img {
   width: 100px;
 }
