@@ -1,0 +1,10 @@
+<%= simple_form_for(current_user, url: update_profile_path) do |f| %>
+  <%= f.input :first_name, placeholder: "First Name" %>
+    <%= f.input :last_name, placeholder: "Last Name" %>
+    <%= f.input :address, placeholder: "Downing St" %>
+    <%= f.input :city, placeholder: "London" %>
+    <%= f.input :post_code, placeholder: "W1" %>
+    <%= f.input :company, placeholder: "Company name if applicable" %>
+    <%= f.input :avatar, as: :attachinary %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
