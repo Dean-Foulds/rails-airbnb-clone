@@ -11,6 +11,10 @@ class HomePolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def new?
     return true
   end
