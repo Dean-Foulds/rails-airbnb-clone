@@ -15,12 +15,6 @@ ActiveRecord::Schema.define(version: 20160831141757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "add_column_to_users", force: :cascade do |t|
-    t.string   "avatar"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "attachinary_files", force: :cascade do |t|
     t.string   "attachinariable_type"
     t.integer  "attachinariable_id"
@@ -92,13 +86,14 @@ ActiveRecord::Schema.define(version: 20160831141757) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "avatar"
     t.string   "company"
     t.string   "address"
     t.string   "city"
     t.string   "post_code"
     t.string   "mobile_number"
     t.boolean  "admin"
+    t.string   "first_name"
+    t.string   "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

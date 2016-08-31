@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   after_create :send_welcome_email
 
+
   has_many :homes
+
+  has_attachment :avatar
 
   private
 
