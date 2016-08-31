@@ -16,9 +16,12 @@
       <div class="form-actions">
         <%= f.button :submit, "Sign up" %>
       </div>
+        send_welcome_email(@home).deliver_now
     <% end %>
 
     <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
+
+
