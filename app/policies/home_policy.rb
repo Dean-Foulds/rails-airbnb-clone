@@ -2,6 +2,7 @@ class HomePolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
+      # scope.where(user: user)
       scope.all
     end
   end
@@ -15,12 +16,22 @@ class HomePolicy < ApplicationPolicy
     true
   end
 
-  def new?
+  def create?
     return true
   end
 
-  def create?
-    return true
+  def update?
+    user_is_owner_or_admin?
+  end
+
+  def destroy?
+    user_is_owner_or_admin?
+  end
+
+  private
+
+  def user_is_owner_or_admin?
+    record.user == user || user.admin
   end
 end
 

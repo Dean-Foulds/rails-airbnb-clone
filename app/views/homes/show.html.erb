@@ -36,15 +36,15 @@ else
 
 
           <div class="text-center"> <!-- DELETE button -->
-             <% if current_user %>
-             <%= link_to "Delete", home_path(@home), :class => "btn btn-primary",
-             method: :delete,
-             data: { confirm: "Are you sure?" } %>
+             <% if policy(@home).destroy? %>
+              <%= link_to "Delete", home_path(@home), :class => "btn btn-primary",
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+             <% end %>
 
-              <% if current_user == @home.user %>
+              <% if policy(@home).edit? %>
                 <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary" %>
               <% end %>
-            <% end %>
 
            </div> <br><!-- DELETE button end -->
 

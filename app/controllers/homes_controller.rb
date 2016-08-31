@@ -3,8 +3,7 @@ class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
 
   def index# GET /index
-    @homes = policy_scope(Home).order(created_at: :desc)
-    authorize @homes
+    @homes = policy_scope(Home).order(address: :asc)
   end
 
   def show # GET /homes/by ID

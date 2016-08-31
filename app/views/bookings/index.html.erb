@@ -4,31 +4,20 @@
       <div class="row">
         <h3>Bookings:</h3>
         <div class="container">
-
-
-
-          <% @homes.each do |home| %>
-
-          <div class="row">
-            <% home.bookings.each do |booking| %>
-            <div class="col-sm-6 col-lg-3 ">
-              <ul>
-                <li>
-                  <%= booking.starts_at %> at <%= booking.starts_at_time.strftime('%R') %> <br>
-                  <%= booking.home.address %>
-                </li>
-              </ul>
-            </div>
-            <% end %>
-            <%= link_to "Back", homes_path, class: "btn btn-default" %>
+          <div class="col-sm-6 col-lg-3 ">
+            <% @bookings.each do |booking| %>
+            <ul>
+              <li>
+                <%= booking.starts_at %> at <%= booking.starts_at_time.strftime('%R') %> <br>
+                <%= booking.home.address %>
+              </li>
+            </ul>
           </div>
-
           <% end %>
-
-
-
+          <%= link_to "Back", homes_path, class: "btn btn-default" %>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
