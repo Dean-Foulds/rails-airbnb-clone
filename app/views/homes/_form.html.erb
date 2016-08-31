@@ -3,7 +3,7 @@
 <%= simple_form_for(@home) do |f| %>
     <%= f.input :address, placeholder: "address" %>
     <%= f.input :post_code, placeholder: "SE1 6PX" %>
-    <%= f.input :type, collection: Home::TYPE  %>
+    <%= f.input :room_type, collection: Home::TYPE  %>
     <%= f.input :number_of_rooms, collection: Home::NUMBER_OF_ROOMS %>
     <%= f.input :status, collection: Home::STATUS %>
     <%= f.input :comments, placeholder: "comments (change to text field)" %>
