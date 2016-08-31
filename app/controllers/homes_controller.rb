@@ -17,7 +17,11 @@ class HomesController < ApplicationController
   end
 
 
+<<<<<<< HEAD
   def create
+=======
+  def create # POST /homes
+>>>>>>> d84c1ce76f7663c81f1beb4e85085e57c53880fa
     @home = Home.create!(home_params)
     if @home.save
       redirect_to home_path(@home)
