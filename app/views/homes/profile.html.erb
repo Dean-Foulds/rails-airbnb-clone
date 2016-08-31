@@ -1,9 +1,19 @@
-user = current_user
+<!-- add user avatar -->
 
-<%= @profile.address %>
-<%= %>
-<%= %>
-<%= %>
-<%= %>
-<%= %>
-<%= %>
+<!-- First name -->
+
+<!-- Last name -->
+
+<!-- Address -->
+
+<!-- City -- >
+
+<!-- Postcode -->
+
+<!-- Company -->
+
+<!-- Mobile -->
+
+= form_for(@user) do |user_form|
+    = user_form.text_field(:name)
+    = attachinary_file_field_tag 'user[avatar]', @user, :avatar
