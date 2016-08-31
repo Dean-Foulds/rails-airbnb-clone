@@ -1,9 +1,7 @@
 
-<!-- FEATURETTES -->
 <div class="banner-page">
   <div class="container">
     <div class="row">
-
       <div class="col-md-offset-2 col-md-8">
         <div class="feature-box">
 
@@ -11,25 +9,25 @@
           <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
               <!-- PROPERTY tab -->
-              <li role="presentation" class="active">
+              <li class="active">
                 <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Property
                 </a>
               </li>
               <!-- MAP tab -->
-              <li role="presentation">
-                <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Map
+              <li>
+                <a href="#map" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Map
                 </a>
               </li>
 
               <!-- BOOKINGS tab -->
-              <li role="presentation">
-                <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Bookings
+              <li>
+                <a href="#booking" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Bookings
                 </a>
               </li>
 
               <!-- REVIEWS tab -->
-              <li role="presentation">
-                <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Reviews
+              <li>
+                <a href="#reviews" role="tab" id="reviews-tab" data-toggle="tab" aria-controls="reviews">Reviews
                 </a>
               </li>
             </ul>
@@ -39,19 +37,18 @@
             <div class="tab-pane fade in active" role="tabpanel" id="home">
               <%= render "property-details" %>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="profile">
-              <%#= render "map" %>
+            <div class="tab-pane fade test" role="tabpanel" id="map">
+              <%= render 'map'%>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="dropdown1">
-              <%= render 'list-viewings' %>
+            <div class="tab-pane fade" role="tabpanel" id="booking">
+              <%= render 'bookings', bookings: @home.bookings %>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="dropdown2">
-              <p>BODY TEXT </p>
+            <div class="tab-pane fade" role="tabpanel" id="reviews">
+              TODO reviews
             </div>
           </div>
-
         </div>
       </div>
-    </div> <!-- end row -->
-  </div> <!-- end container -->
+    </div>
+  </div>
 </div>

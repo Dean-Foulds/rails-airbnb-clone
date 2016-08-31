@@ -1,23 +1,19 @@
-<div class="booking-wrapper">
-  <div class="booking-img">
-    <div class="container">
-      <div class="row">
-        <h3>Bookings:</h3>
-        <div class="container">
-          <div class="col-sm-6 col-lg-3 ">
-            <% @bookings.each do |booking| %>
-            <ul>
-              <li>
-                <%= booking.starts_at %> at <%= booking.starts_at_time.strftime('%R') %> <br>
-                <%= booking.home.address %>
-              </li>
-            </ul>
-          </div>
-          <% end %>
-          <%= link_to "Back", homes_path, class: "btn btn-default" %>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+      <h3>Viewing appointments:</h3>
+        <div>
+          <% @homes.each do |home| %>
+          <% @bookings.each do |booking| %>
+              <%= booking.starts_at %> at <%= booking.starts_at_time.strftime('%R') %>
+              <%= booking.home.address %>
         </div>
+        <% end %>
 
+      </div>
+      <% end %>
+
+        <%= link_to "Back", homes_path, class: "btn btn-default" %>
       </div>
     </div>
   </div>
-</div>

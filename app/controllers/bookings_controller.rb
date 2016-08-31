@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.home = @home
     authorize @booking
     if @booking.save
-      redirect_to home_path(@home)
+      redirect_to home_path(params[:home_id])
     else
       render "homes/show"
     end

@@ -1,27 +1,28 @@
-<div class="">
-  <% if @hash && @hash.first[:lat] %>
-  <div id="map" style="height: 400px; width: 100px">
+
+<div class="col-sm-12">
+  <div id="map-content" style="height: 350px; width: 100%;">
   </div>
-  <% end %>
 </div>
 
 <!-- SCRIPT -->
 <% content_for(:after_js) do %>
-<script>
-  $(document).on('ready', function() {
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
-      }
+  <script>
+    $("[href='#map']").click(function() {
+      setTimeout(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map-content' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      }, 200);  // Need some delay to let the div in tab appear before building the map.
     });
-  });
-</script>
+  </script>
 <% end %>
 
 
