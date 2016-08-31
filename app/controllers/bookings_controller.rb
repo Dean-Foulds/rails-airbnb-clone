@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.home = @home
     if @booking.save
-      redirect_to home_bookings_path(@home)
+      redirect_to home_path(params[:home_id])
     else
       render "homes/show"
     end

@@ -1,11 +1,12 @@
-<!-- MAKE A VIEWING APPOINTMENT FORM -->
+<!-- GENERATE VIEWING APPOINTMENT FORM -->
 
 <%= simple_form_for([@home, @booking]) do |f| %>
 <%= f.input :starts_at, as: :string, input_html: { data: { provide: :datepicker } } %>
 <%= f.input :starts_at_time, placeholder: "14.00", as: :time, minute_step: 15 %>
-
-<%= f.button :submit , "Book viewing", class: "text-center btn btn-primary"  %>
+<%= f.button :submit, "Book a viewing", class: "text-center btn btn-primary"  %>
 <% end %>
+
+<!-- FORM END -->
 
 <%= content_for(:after_js) do %>
 <script>
@@ -18,9 +19,6 @@
   })
 </script>
 <% end %>
-
-<!-- why is home_id not included in form? -->
-<!-- in booking model - review self availability method? -->
 
 
 

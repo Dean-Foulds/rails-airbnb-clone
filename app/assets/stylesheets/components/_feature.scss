@@ -1,5 +1,11 @@
+.feature-bdr {
+  border: 1 solid #BCBCBC;
+}
 .transparent {
   background:rgba(140,140,140,0.8);
+}
+.test {
+  background-color: blue;
 }
 
 .feature {
@@ -43,7 +49,8 @@
 .featurette-img-sm {
   background-size: cover !important;
   height: 200px;
-  width: 200px;
+  // width: 200px;
+  padding-left: 0px;
 }
 .featurette-heading {
     font-size: 30px;
