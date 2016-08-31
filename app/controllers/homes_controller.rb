@@ -20,8 +20,7 @@ class HomesController < ApplicationController
   def create # POST /homes
     @home = Home.create!(home_params)
     if @home.save
-      UserMailer.send_welcome_email(@home).deliver_now
-      redirect_to home_path
+      redirect_to home_path(@home)
     else
       render :new
     end
