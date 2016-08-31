@@ -1,5 +1,5 @@
 class Home < ApplicationRecord
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   belongs_to :user
   has_attachments :pictures, maximum: 10
   geocoded_by :address
