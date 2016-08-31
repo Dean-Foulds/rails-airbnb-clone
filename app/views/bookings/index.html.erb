@@ -4,14 +4,9 @@
       <h3>Viewing appointments:</h3>
         <div>
           <% @homes.each do |home| %>
-
           <% @bookings.each do |booking| %>
-
-
-
               <%= booking.starts_at %> at <%= booking.starts_at_time.strftime('%R') %>
               <%= booking.home.address %>
-
         </div>
         <% end %>
 
@@ -22,7 +17,3 @@
       </div>
     </div>
   </div>
-
-
-
-

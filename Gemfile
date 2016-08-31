@@ -8,6 +8,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'devise'
+gem 'pundit'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

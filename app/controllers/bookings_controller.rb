@@ -1,17 +1,17 @@
 class BookingsController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @homes = Home.all
     @home = Home.find(params[:home_id])
-    @bookings = @home.bookings
+    @bookings = policy_scope(Booking).where(home: @home)
   end
 
   def new
     @home = Home.find(params[:home_id])
     @booking = Booking.new
     @booking.home = @home
+    authorize @booking
   end
 
   def create
@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     @booking.user = current_user
     @booking.home = @home
+    authorize @booking
     if @booking.save
       redirect_to home_path(params[:home_id])
     else
@@ -31,13 +32,14 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to homes_path
+    redirect_to home_path(@booking.home)
   end
 
   private
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def bookings_params
