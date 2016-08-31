@@ -3,7 +3,8 @@ class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
 
   def index# GET /index
-    @homes = Home.all
+    @homes = policy_scope(Home).order(created_at: :desc)
+    authorize @homes
   end
 
   def show # GET /homes/by ID
@@ -14,12 +15,13 @@ class HomesController < ApplicationController
 
   def new  # GET /homes/new
     @home = Home.new
+    authorize @home
   end
 
 
   def create # POST /homes
     @home = current_user.homes.build(home_params)
-
+    authorize @home
     if @home.save
       UserMailer.creation_confirmation(@home).deliver_now
       redirect_to home_path(@home)

@@ -43,8 +43,11 @@ else
              <%= link_to "Delete", home_path(@home), :class => "btn btn-primary",
              method: :delete,
              data: { confirm: "Are you sure?" } %>
-             <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary" %>
-             <% end %>
+
+              <% if current_user == @home.user %>
+                <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary" %>
+              <% end %>
+            <% end %>
 
            </div> <br>
 
@@ -63,8 +66,8 @@ else
     </div>
   </div> <br>
 
-<div class="col-md-2"> <!-- This is a spacer column rather than an offset? -->
-</div>
+  <div class="col-md-2"> <!-- This is a spacer column rather than an offset? -->
+  </div>
 </div> <!-- end features -->
 </div> <!-- end container -->
 </div> <!-- end wrapper -->
