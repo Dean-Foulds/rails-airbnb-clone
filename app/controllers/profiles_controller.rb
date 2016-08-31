@@ -16,19 +16,10 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :address, :city, :postcode, :company, :avatar)
+    params.require(:user).permit(:mobile_number, :first_name, :last_name, :address, :city, :postcode, :company, :avatar)
   end
 
 end
 
 
 
-
-# from users model
-
-# t.string   "avatar"
-#     t.string   "company"
-#     t.string   "address"
-#     t.string   "city"
-#     t.string   "post_code"
-#     t.string   "mobile_number"

@@ -1,3 +1,15 @@
+
+
+
+
+<% if current_user.avatar? %>
+  <%= cl_image_tag current_user.avatar.path, width: 200, height: 300, crop: :fill %>
+<% end %>
+
+
+
+
+
 <!-- add user avatar -->
 
 <!-- First name -->
@@ -14,6 +26,4 @@
 
 <!-- Mobile -->
 
-= form_for(@user) do |user_form|
-    = user_form.text_field(:name)
-    = attachinary_file_field_tag 'user[avatar]', @user, :avatar
+
