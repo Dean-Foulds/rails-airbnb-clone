@@ -1,14 +1,19 @@
+.transparent {
+  background:rgba(140,140,140,0.8);
+}
+
 .feature {
   height: 100px;
   padding-top: 70px;
 }
 .feature-box {
-  margin: 50px 0;
-  padding: 30px;
-  background-color: #ffffff;
-  opacity: 1.0;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
-}
+  background-color: rgba(200,200,200,0.9);
+  margin-top: 8%;
+  margin-bottom: 8%;
+  padding: 25px;
+  height: 75vh;
+  position: relative;
+ }
 .features img {
   width: 100px;
 }
