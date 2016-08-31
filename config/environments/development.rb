@@ -8,13 +8,8 @@ Rails.application.configure do
   # config.cache_classes = false
 
 
-  Rails.application.configure do
-  # [...]
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "https://airbnb-dean-foulds.herokuapp.com/" }
-  # [...]
-end
-
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: "localost:3000" }
 
   # Do not eager load code on boot.
   config.eager_load = false

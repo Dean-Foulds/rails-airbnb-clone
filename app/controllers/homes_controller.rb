@@ -17,11 +17,9 @@ class HomesController < ApplicationController
   end
 
 
-  def create # POST /homes
-    @home = current_user.homes.build(home_params)
-
+  def create
+    @home = Home.new(home_params)
     if @home.save
-      UserMailer.creation_confirmation(@home).deliver_now
       redirect_to home_path(@home)
     else
       render :new
@@ -32,12 +30,10 @@ class HomesController < ApplicationController
   end
 
   def update
-    @home.update!(home_params)
-
-    if current_user
-      @home.save
-      @home.update(home_params)
+    if @home.update(home_params)
       redirect_to home_path(@home)
+    else
+      render :edit
     end
   end
 
@@ -56,6 +52,6 @@ end
   end
 
   def home_params
-    params.require(:home).permit(:address, :post_code, :email, :password, :pictures => [])
+    params.require(:home).permit(:address, :post_code, :room_type, :number_of_rooms, :status, :comments, :pictures => [])
   end
 end
