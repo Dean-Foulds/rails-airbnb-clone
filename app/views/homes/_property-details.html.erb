@@ -22,12 +22,11 @@ else
 </div>
 
 <!-- PROPERTY IMAGE -->
-<div class="col-md-8">
 
   <h2 class="featurette-heading"> <%= @home.address %></h2>
-      <h3 class="text-muted">  <%= @home.post_code %> </h3>
+      <p class="text-info">  <%= @home.post_code %> </p>
       <% if @home.status == "" %>
-      <p class="success">No status
+      <p class="text-success">No status
       <% else %>
       <%= @home.status %></p>
       <% end %>
@@ -43,7 +42,6 @@ else
        <% end %>
 
      </div>
-</div>
 
      <%= content_for(:after_js) do %>
      <script>
