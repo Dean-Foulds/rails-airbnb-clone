@@ -24,19 +24,22 @@ else
 <!-- PROPERTY IMAGE -->
 <div class="col-md-8">
 
-  <h2 class="featurette-heading"> <%= @home.address %> <%= @home.post_code %> <% if @home.status == "" %>
-      No status
+  <h2 class="featurette-heading"> <%= @home.address %></h2>
+      <h3 class="text-muted">  <%= @home.post_code %> </h3>
+      <% if @home.status == "" %>
+      <p class="success">No status
       <% else %>
-      <%= @home.status %>
-      <% end %></h2>
+      <%= @home.status %></p>
+      <% end %>
+
       <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p> <br>
 
-      <div class="text-center">
+      <div class="text-left">
        <% if current_user %>
-       <%= link_to "Delete", home_path(@home), :class => "btn btn-primary",
+       <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary btn-sm" %>
+       <%= link_to "Delete", home_path(@home), :class => "btn btn-default btn-sm",
        method: :delete,
        data: { confirm: "Are you sure?" } %>
-       <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary" %>
        <% end %>
 
      </div>
