@@ -3,7 +3,7 @@
 <%= simple_form_for([@home, @booking]) do |f| %>
 <%= f.input :starts_at, as: :string, input_html: { data: { provide: :datepicker } } %>
 <%= f.input :starts_at_time, placeholder: "14.00", as: :time, minute_step: 15 %>
-<%= f.button :submit, "Book a viewing", class: "text-center btn btn-primary"  %>
+<%= f.button :submit, "Book a viewing", class: "text-center btn btn-primary btn-sm"  %>
 <% end %>
 
 <!-- FORM END -->

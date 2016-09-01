@@ -7,21 +7,26 @@
         <th>Time</th>
         <th>Name</th>
         <th>Company</th>
+        <th>Actions</th>
+
       </tr>
     </thead>
     <tbody class="">
-
-
-<% bookings.each do |booking| %>
-
+      <% bookings.each do |booking| %> <!-- iternation -->
       <tr>
         <td><%= booking.starts_at %></td>
         <td><%= booking.starts_at_time.strftime('%R') %></td>
         <td><%= current_user.email %></td>
         <td><%= current_user.company %></td>
+        <td><a href="#" class="btn btn-primary btn-sm">Edit</a> <a href="#" class="btn btn-danger btn-sm">Delete</a></td>
       </tr>
-      <% end %>
+      <% end %> <!-- iternation end -->
+
+
     </tbody>
   </table>
+
+
+
 
 

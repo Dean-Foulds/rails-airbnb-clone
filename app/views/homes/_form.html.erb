@@ -1,12 +1,23 @@
 <!-- POST A PROPERTY FORM -->
 
-<%= simple_form_for(@home) do |f| %>
-    <%= f.input :address, placeholder: "address" %>
-    <%= f.input :post_code, placeholder: "SE1 6PX" %>
-    <%= f.input :room_type, collection: Home::TYPE  %>
-    <%= f.input :number_of_rooms, collection: Home::NUMBER_OF_ROOMS %>
-    <%= f.input :status, collection: Home::STATUS %>
-    <%= f.input :comments, placeholder: "comments (change to text field)" %>
-    <%= f.input :pictures, as: :attachinary %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+
+<div class="well bs-component">
+  <%= simple_form_for(@home) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :address, placeholder: "Address" %>
+  <%= f.input :post_code, placeholder: "SE1 6PX" %>
+  <%= f.input :room_type, collection: Home::TYPE  %>
+  <%= f.input :number_of_rooms, collection: Home::NUMBER_OF_ROOMS %>
+  <%= f.text_area :comments, placeholder: "Comments" %>
+  <%= f.input :pictures, as: :attachinary %>
+  <%= f.error :base %>
+  <%= f.button :submit, class: "btn btn-primary btn-sm" %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
