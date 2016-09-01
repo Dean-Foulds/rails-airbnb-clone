@@ -1,0 +1,18 @@
+<!-- profile partial -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-2">
+      <% if current_user.avatar? %>
+        <%= cl_image_tag current_user.avatar.path, class: "avatar-bordered" %>
+      <% end %>
+        <div>
+          <%= current_user.first_name %>
+          <%= current_user.last_name %>
+          <%= current_user.address %>
+          <%= current_user.city %>
+          <%= current_user.post_code %>
+          <%= current_user.company %>
+        </div>
+    </div>
+  </div>
+</div>
