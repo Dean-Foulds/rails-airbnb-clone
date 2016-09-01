@@ -1,36 +1,56 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-2">
-      <% if current_user.avatar? %>
-        <%= cl_image_tag current_user.avatar.path, class: "avatar-bordered" %>
-      <% end %>
-        <div>
-          <%= current_user.first_name %>
-          <%= current_user.last_name %>
-          <%= current_user.address %>
-          <%= current_user.city %>
-          <%= current_user.post_code %>
-          <%= current_user.company %>
+
+<div class="banner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="feature-box">
+
+          <!-- TABS -->
+          <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+            <ul class="nav nav-tabs" id="myTabs" role="tablist">
+              <!-- PROPERTY tab -->
+              <li class="active">
+                <a href="#profile" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Profile
+                </a>
+              </li>
+              <!-- MAP tab -->
+              <li>
+                <a href="#edit_profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Edit Profile
+                </a>
+              </li>
+
+              <!-- BOOKINGS tab -->
+              <li>
+                <a href="#properties" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Properties
+                </a>
+              </li>
+
+              <!-- REVIEWS tab -->
+              <li>
+                <a href="#bookings" role="tab" id="reviews-tab" data-toggle="tab" aria-controls="reviews">Bookings
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- RENDER PARTIALS to tabs -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade in active" role="tabpanel" id="profile">
+              <%= render "profile_show" %>
+            </div>
+            <div class="tab-pane fade test" role="tabpanel" id="edit_profile">
+              <%= render 'profile_edit'%>
+            </div>
+            <div class="tab-pane fade" role="tabpanel" id="properties">
+              <%= render 'user_properties' %>
+            </div>
+            <div class="tab-pane fade" role="tabpanel" id="bookings">
+              <%= render 'landlord_bookings' %>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </div>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-6">
-      <%= simple_form_for(current_user, url: update_profile_path) do |f| %>
-        <%= f.input :first_name, placeholder: "First Name" %>
-          <%= f.input :last_name, placeholder: "Last Name" %>
-          <%= f.input :address, placeholder: "Downing St" %>
-          <%= f.input :city, placeholder: "London" %>
-          <%= f.input :post_code, placeholder: "W1" %>
-          <%= f.input :company, placeholder: "Company name if applicable" %>
-          <%= f.input :mobile_number, placeholder: "020555666777" %>
-          <%= f.input :avatar, as: :attachinary %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
