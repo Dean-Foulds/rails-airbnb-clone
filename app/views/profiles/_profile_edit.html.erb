@@ -1,8 +1,6 @@
 <!-- profile edit -->
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-6">
+
       <%= simple_form_for(current_user, url: update_profile_path) do |f| %>
         <%= f.input :first_name, placeholder: "First Name" %>
           <%= f.input :last_name, placeholder: "Last Name" %>
@@ -14,6 +12,4 @@
           <%= f.input :avatar, as: :attachinary %>
           <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
-    </div>
-  </div>
-</div>
+
