@@ -11,7 +11,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400
   border: none;
   font-size: 13px;
   font-weight: 300;
-
+butt
   .navbar-toggle:hover .icon-bar {
     background-color: #b3b3b3;
   }
@@ -33,6 +33,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400
     .form-control {
       height: auto;
       padding: $padding-xs-vertical $padding-xs-horizontal;
+      color: #b3b3b3;
     }
   }
 
