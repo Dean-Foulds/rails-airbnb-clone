@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :homes do
     resources :bookings, only: [:index, :new, :create]
+    resources :home_reviews, only: [:create]
   end
 
   get '/profile', to: 'profiles#show', as: :profile
