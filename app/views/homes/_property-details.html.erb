@@ -5,7 +5,7 @@ else
   end %>
 
 <!-- PROPERTY IMAGE -->
-<div class="col-md-4">
+<div class="col-sm-4">
   <div class="featurette-img-sm home-image-thumbnail" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 100%, rgba(0,36,61,0.0) 100%), url('<%= main_home_picture %>') ;">
   </div>
 
@@ -16,7 +16,7 @@ else
       <%= render 'homes/booking_form' %>
     </div>
     <% else %>
-    <p>Log in if you want to book an appointment.</p>
+    <p>Log in to arrange a viewing.</p>
     <% end %>
   </div>
 </div>
@@ -25,11 +25,13 @@ else
 
   <h2 class="featurette-heading"> <%= @home.address %></h2>
       <p class="text-info">  <%= @home.post_code %> </p>
+      <div class="status">
       <% if @home.status == "" %>
-      <p class="text-success">No status
+      No status
       <% else %>
-      <%= @home.status %></p>
+      <%= @home.status %>
       <% end %>
+      </div>
 
       <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p> <br>
 

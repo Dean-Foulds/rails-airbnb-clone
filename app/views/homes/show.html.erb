@@ -2,7 +2,7 @@
 <div class="banner-page">
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-2 col-md-8">
+      <div class="col-sm-offset-2 col-sm-8">
         <div class="feature-box">
 
           <!-- TABS -->
@@ -34,16 +34,16 @@
           </div>
           <!-- RENDER PARTIALS to tabs -->
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade in active" role="tabpanel" id="home">
+            <div class="tab-pane fade in active tab-color" role="tabpanel" id="home">
               <%= render "property-details" %>
             </div>
-            <div class="tab-pane fade test" role="tabpanel" id="map">
+            <div class="tab-pane fade tab-color" role="tabpanel" id="map">
               <%= render 'map'%>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="booking">
+            <div class="tab-pane fadet tab-color" role="tabpanel" id="booking">
               <%= render 'bookings', bookings: @home.bookings %>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="reviews">
+            <div class="tab-pane fade tab-color" role="tabpanel" id="reviews">
               TODO reviews
             </div>
           </div>
