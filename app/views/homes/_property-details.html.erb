@@ -5,7 +5,7 @@ else
   end %>
 
 <!-- PROPERTY IMAGE -->
-<div class="col-sm-4">
+<div class="col-xs-4">
   <div class="featurette-img-sm home-image-thumbnail" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 100%, rgba(0,36,61,0.0) 100%), url('<%= main_home_picture %>') ;">
   </div>
 
@@ -20,6 +20,8 @@ else
     <% end %>
   </div>
 </div>
+
+<div class="col-xs-offset-1 col-xs-6">
 
 <!-- PROPERTY IMAGE -->
 
@@ -44,6 +46,7 @@ else
        <% end %>
 
      </div>
+  </div>
 
      <%= content_for(:after_js) do %>
      <script>

@@ -28,7 +28,7 @@
 .banner-green {
   text-align: left;
   height: 100vh;
-  background-image: url('green.jpg');
+  background-image: linear-gradient(-225deg, rgba(0,51,102,0.2) 0%, rgba(102,255,255,0.6) 50%), url('green.jpg');
   background-size: cover !important;
   display: flex;
   align-items: center;
@@ -38,10 +38,10 @@
 .banner-blue {
   text-align: left;
   height: 100vh;
-  background-image: url('light-blue.jpg');
+  background-image: linear-gradient(-225deg, rgba(0,51,102,0.2) 0%, rgba(102,255,255,0.6) 50%), url('blue.jpg');
   background-size: cover !important;
   display: flex;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
   position: relative;
 }
