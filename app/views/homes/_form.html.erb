@@ -1,23 +1,28 @@
-<!-- POST A PROPERTY FORM -->
+<!-- PROPERTY REGISTRATION FORM -->
 
-
-<div class="well bs-component">
-  <%= simple_form_for(@home) do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :address, placeholder: "Address" %>
-  <%= f.input :post_code, placeholder: "SE1 6PX" %>
-  <%= f.input :room_type, collection: Home::TYPE  %>
-  <%= f.input :number_of_rooms, collection: Home::NUMBER_OF_ROOMS %>
-  <%= f.text_area :comments, placeholder: "Comments" %>
-  <%= f.input :pictures, as: :attachinary %>
-  <%= f.error :base %>
-  <%= f.button :submit, class: "btn btn-primary btn-sm" %>
-  <% end %>
+<div class="banner-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <div class="contact-form">
+          <div class="legend">Property registration</div>
+            <%= simple_form_for(@home) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :address, placeholder: "Address" %>
+            <%= f.input :post_code, placeholder: "SE1 6PX" %>
+            <%= f.input :room_type, collection: Home::TYPE   %>
+            <%= f.input :number_of_rooms, collection: Home::NUMBER_OF_ROOMS %>
+            <%= f.input :comments, placeholder: "Comments" %>
+            <%= f.input :pictures, as: :attachinary %>
+            <%= f.error :base %>
+            <div style="text-align: right;">
+            <%= f.submit "Register", class: "btn btn-default btn-sm" %>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-
-
-
 
