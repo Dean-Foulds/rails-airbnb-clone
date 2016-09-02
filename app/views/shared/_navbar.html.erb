@@ -11,30 +11,30 @@
 
     <!-- Menu form -->
     <div class="navbar-wagon-item">
-      <%= link_to t(".top_call_to_action", default: "Agents"), homes_path, class: "navbar-wagon-link" %>
+      <%= link_to t(".top_call_to_action", default: "About us"), pages_about_path, class: "navbar-wagon-link" %>
     </div>
-
-
     <div class="navbar-wagon-item">
+
       <%= link_to t(".top_call_to_action", default: "Landlords"), homes_path, class: "navbar-wagon-link" %>
     </div>
 
     <div class="navbar-wagon-item">
-      <%= link_to t(".top_call_to_action", default: "About us"), pages_about_path, class: "navbar-wagon-link" %>
+      <%= link_to t(".top_call_to_action", default: "Agents"), homes_path, class: "navbar-wagon-link" %>
+    </div>
+
+
+
+    <div class="navbar-wagon-item">
+      <%= link_to t(".top_call_to_action", default: "Property list"), homes_path, class: "navbar-wagon-link" %>
+    </div>
+
+    <div class="navbar-wagon-item">
+      <%= link_to t(".top_call_to_action", default: "Add property"), new_home_path, class: "navbar-wagon-link" %>
     </div>
 
     <div class="navbar-wagon-item">
       <%= link_to t(".top_call_to_action", default: "Contact"), pages_contact_path, class: "navbar-wagon-link" %>
     </div>
-
-    <div class="navbar-wagon-item">
-      <%= link_to t(".top_call_to_action", default: "All properties"), homes_path, class: "navbar-wagon-link" %>
-    </div>
-
-    <div class="navbar-wagon-item">
-      <%= link_to t(".top_call_to_action", default: "Add a home"), new_home_path, class: "navbar-wagon-link" %>
-    </div>
-
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
