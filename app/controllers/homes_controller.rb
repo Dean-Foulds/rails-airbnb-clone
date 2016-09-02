@@ -8,6 +8,7 @@ class HomesController < ApplicationController
 
   def show # GET /homes/by ID
     @booking = Booking.new
+    @home_review = HomeReview.new
     # @hash = [ { lat: 54.6568, lng: -3.358805 } ]
     @hash = [ { lat: @home.latitude, lng: @home.longitude } ]
   end

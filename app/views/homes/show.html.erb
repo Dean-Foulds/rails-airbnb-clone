@@ -2,7 +2,7 @@
 <div class="banner-page">
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-2 col-md-8">
+      <div class="col-sm-offset-2 col-sm-8">
         <div class="feature-box">
 
           <!-- TABS -->
@@ -34,16 +34,16 @@
           </div>
           <!-- RENDER PARTIALS to tabs -->
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade in active" role="tabpanel" id="home">
+            <div class="tab-pane fade in active tab-color" role="tabpanel" id="home">
               <%= render "property-details" %>
             </div>
-            <div class="tab-pane fade test" role="tabpanel" id="map">
+            <div class="tab-pane fade tab-color" role="tabpanel" id="map">
               <%= render 'map'%>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="booking">
+            <div class="tab-pane fadet tab-color" role="tabpanel" id="booking">
               <%= render 'bookings', bookings: @home.bookings %>
             </div>
-            <div class="tab-pane fade" role="tabpanel" id="reviews">
+            <div class="tab-pane fade tab-color" role="tabpanel" id="reviews">
               TODO reviews
             </div>
           </div>
@@ -52,3 +52,38 @@
     </div>
   </div>
 </div>
+
+<div class="container padded">
+  <% @home.home_reviews.each do |r| %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h2><%= r.content %></h2>
+      <% r.rating.times do %>
+      <i class="fa fa-star"></i>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for [@home, @home_review] do |f| %>
+      <%= f.input :content, as: :text, placeholder: "What was your experience?" %>
+      <%= f.input :rating, collection: 1..5 %>
+      <%= f.submit "Add review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

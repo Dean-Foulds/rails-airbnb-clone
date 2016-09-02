@@ -1,7 +1,44 @@
+
+.contact-form {
+    background-color: rgba(20, 20, 20, 0.3);
+    padding: 25px;
+    color: white;
+}
+.legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 22px;
+    font-size: 24px;
+    line-height: inherit;
+    color: white;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
 .banner {
   color: white;
   text-align: center;
   height: 100vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.banner-green {
+  text-align: left;
+  height: 100vh;
+  background-image: url('green.jpg');
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.banner-blue {
+  text-align: left;
+  height: 100vh;
+  background-image: url('light-blue.jpg');
   background-size: cover !important;
   display: flex;
   align-items: center;

@@ -1,23 +1,62 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
-
-          <form method="post" id="" class="">
-            <header>Contacts form</header>
-
+<div class="banner-green">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="contact-form">
+          <form class="form-horizontal" action="" method="post">
             <fieldset>
-              <div class="row">
-                <section class="col col-6">
-                  <label class="label">Name</label>
-                  <label class="input">
-                    <i class="icon-append fa fa-user">Name</i>
-                    <input type="text" name="name" id="name">
-                  </label>
-                </section>
-                <section class="col col-6">
-                  <label class="label">E-mail</label>
-                  <label class="input">
-                    <i class="icon-append fa fa-envelope-o">Email</i>
-                    <input type="email" name="email2" id="email2">
-                  </label>
-                </section>
+
+              <div class="legend">Contact us</div>
+
+              <!-- Name input-->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="name">Name</label>
+                <div class="col-md-9">
+                  <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+                </div>
               </div>
+
+              <!-- Email input-->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="email">Email</label>
+                <div class="col-md-9">
+                  <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+                </div>
+              </div>
+
+              <!-- Message body -->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="message">Your message</label>
+                <div class="col-md-9">
+                  <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+                </div>
+              </div>
+
+              <!-- Form actions -->
+              <div class="form-group">
+                <div class="col-md-12 text-right">
+                  <button type="submit" class="btn btn-default btn-sm">Submit</button>
+                </div>
+              </div>
+
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
