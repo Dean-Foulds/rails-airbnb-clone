@@ -1,8 +1,10 @@
 <h1 class="text-center">Property listing</h1>
 
 <%= form_tag homes_path do%>
-  <%= text_field_tag :address %>
-  <div><%= submit_tag 'Search' %></div>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <div><%= submit_tag 'Search' %></div>
+  </p>
 <% end %>
 
 <div class="p-wrapper">
