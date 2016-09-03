@@ -3,8 +3,13 @@ class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
 
   def index# GET /index
-    @homes = policy_scope(Home).order(address: :asc)
-    Home.near(params[:address], 10).where(status: :available)
+    # @homes = policy_scope(Home).order(address: :asc)
+    if params[:search].present?
+      @locations = Home.near(params[:search], 10).where(status: :available)
+    else
+     # @locations = Location.all
+     @homes = policy_scope(Home).order(address: :asc)
+    end
   end
 
   def show # GET /homes/by ID
@@ -43,7 +48,7 @@ class HomesController < ApplicationController
   def destroy
     @home.destroy
     redirect_to homes_path
-end
+  end
 
   private
 
