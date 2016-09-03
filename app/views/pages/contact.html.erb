@@ -8,36 +8,28 @@
 
               <div class="legend">Contact us</div>
 
-              <!-- Name input-->
-              <div class="form-group">
-                <label class="col-md-3 control-label" for="name">Name</label>
-                <div class="col-md-9">
-                  <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
-                </div>
-              </div>
+                <div align="center">
+                  <%= form_for @message, url: contact_path do |message_form| %>
+                  <fieldset>
+                  <div class="field">
+                    <%= message_form.text_field :name, placeholder: "Name" %>
+                  </div>
 
-              <!-- Email input-->
-              <div class="form-group">
-                <label class="col-md-3 control-label" for="email">Email</label>
-                <div class="col-md-9">
-                  <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
-                </div>
-              </div>
+                  <div class="field">
+                    <%= message_form.email_field :email, placeholder: "Email"%>
+                  </div>
 
-              <!-- Message body -->
-              <div class="form-group">
-                <label class="col-md-3 control-label" for="message">Your message</label>
-                <div class="col-md-9">
-                  <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
-                </div>
-              </div>
+                  <div class="field">
+                    <%= message_form.text_area :content, placeholder: "Message"%>
+                  </div>
+                </fieldset>
 
-              <!-- Form actions -->
-              <div class="form-group">
-                <div class="col-md-12 text-right">
-                  <button type="submit" class="btn btn-default btn-sm">Submit</button>
-                </div>
-              </div>
+                <fieldset>
+                  <div class="field">
+                    <%= message_form.submit "Send" %>
+                  </div>
+                </fieldset>
+              <% end %>
 
             </fieldset>
           </form>
