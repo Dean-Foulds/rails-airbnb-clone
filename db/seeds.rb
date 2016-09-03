@@ -41,8 +41,9 @@ Home.destroy_all
 # end
 
 
-
-
+# create users
+# assign each home to 1 user
+#
 
 puts "Fetching Properties from API..."
 url = "http://api.zoopla.co.uk/api/v1/property_listings.json?country=england&api_key=#{ENV['ZOOPLA_API_KEY']}"

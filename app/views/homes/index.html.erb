@@ -1,5 +1,10 @@
 <h1 class="text-center">Property listing</h1>
 
+<%= form_tag homes_path do%>
+  <%= text_field_tag :address %>
+  <div><%= submit_tag 'Search' %></div>
+<% end %>
+
 <div class="p-wrapper">
   <div class="container">
     <div class="row">
@@ -20,6 +25,10 @@
     </div>
   </div>
 </div>
+
+
+
+
 
 
 
