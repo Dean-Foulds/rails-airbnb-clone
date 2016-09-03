@@ -4,6 +4,7 @@ class HomesController < ApplicationController
 
   def index# GET /index
     @homes = policy_scope(Home).order(address: :asc)
+    Home.near(params[:address], 10).where(status: :available)
   end
 
   def show # GET /homes/by ID
