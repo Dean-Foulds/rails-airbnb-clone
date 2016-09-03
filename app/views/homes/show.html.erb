@@ -44,7 +44,7 @@
               <%= render 'bookings', bookings: @home.bookings %>
             </div>
             <div class="tab-pane fade tab-color" role="tabpanel" id="reviews">
-              TODO reviews
+              <%= render 'reviews'%>
             </div>
           </div>
         </div>
@@ -52,38 +52,3 @@
     </div>
   </div>
 </div>
-
-<div class="container padded">
-  <% @home.home_reviews.each do |r| %>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h2><%= r.content %></h2>
-      <% r.rating.times do %>
-      <i class="fa fa-star"></i>
-      <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <%= simple_form_for [@home, @home_review] do |f| %>
-      <%= f.input :content, as: :text, placeholder: "What was your experience?" %>
-      <%= f.input :rating, collection: 1..5 %>
-      <%= f.submit "Add review", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
