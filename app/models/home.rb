@@ -15,6 +15,16 @@ class Home < ApplicationRecord
   validates :address, presence: true
   validates :post_code, presence: true
 
+  # def self.search(search)
+  #   if search
+  #     find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  #   else
+  #     find(:all)
+  #   end
+  # end
+
+
+
   # validates :status, inclusion: { in: STATUS }
   # validates :type, inclusion: { in: TYPE }
   # validates :number_of_rooms, inclusion: { in: NUMBER_OF_ROOMS }

@@ -1,9 +1,10 @@
 <h1 class="text-center">Property listing</h1>
 
-<%= form_tag homes_path do%>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <div><%= submit_tag 'Search' %></div>
+
+<%= form_tag homes_path :method => 'get' do%>
+<p>
+  <%= text_field_tag :search, params[:search] %>
+  <div><%= submit_tag 'Search', :name => nil %></div>
   </p>
 <% end %>
 
