@@ -3,8 +3,12 @@ class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
 
   def index# GET /index
+    # if
+    #   @homes = Home.search(params[:search])
+    # else
     @homes = policy_scope(Home).order(address: :asc)
-    Home.near(params[:address], 10).where(status: :available)
+    # end
+    # Home.near(params[:address], 10).where(status: :available)
   end
 
   def show # GET /homes/by ID
