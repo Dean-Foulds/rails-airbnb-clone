@@ -1,0 +1,54 @@
+<div class="banner-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="contact-form">
+          <form class="form-horizontal" action="" method="post">
+            <fieldset>
+
+              <div class="legend">Contact us</div>
+
+                <div align="center">
+                  <%= simple_form_for @message, url: contact_path do |message_form| %>
+                  <fieldset>
+                  <div class="field">
+                    <%= message_form.text_field :name, placeholder: "Name" %>
+                  </div>
+
+                  <div class="field">
+                    <%= message_form.email_field :email, placeholder: "Email"%>
+                  </div>
+
+                  <div class="field">
+                    <%= message_form.text_area :content, placeholder: "Message"%>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <div class="field">
+                    <%= message_form.submit "Send" %>
+                  </div>
+                </fieldset>
+              <% end %>
+
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
