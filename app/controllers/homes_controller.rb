@@ -3,22 +3,12 @@ class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
 
   def index# GET /index
-<<<<<<< HEAD
     # if
     #   @homes = Home.search(params[:search])
     # else
     @homes = policy_scope(Home).order(address: :asc)
     # end
     # Home.near(params[:address], 10).where(status: :available)
-=======
-    # @homes = policy_scope(Home).order(address: :asc)
-    if params[:search].present?
-      @locations = Home.near(params[:search], 10).where(status: :available)
-    else
-     # @locations = Location.all
-     @homes = policy_scope(Home).order(address: :asc)
-    end
->>>>>>> 6941fc5ed424b53f0d07a62e3b9f6bc7953a1746
   end
 
   def show # GET /homes/by ID
