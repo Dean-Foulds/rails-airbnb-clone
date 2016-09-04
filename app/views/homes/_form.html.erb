@@ -5,13 +5,12 @@
             <%= f.input :address, placeholder: "Address" %>
             <%= f.input :post_code, placeholder: "SE1 6PX" %>
             <%= f.input :room_type, collection: Home::TYPE   %>
-            <%= f.input :number_of_rooms, collection: Home::NUMBER_OF_ROOMS %>
+            <%= f.input :number_of_rooms, collection: 1..5 %>
             <%= f.input :comments, placeholder: "Comments" %>
             <%= f.input :pictures, as: :attachinary %>
             <%= f.error :base %>
-            <div style="text-align: right;">
             <%= f.submit "Register", class: "btn btn-default btn-sm" %>
-            </div>
+
           <% end %>
 
 

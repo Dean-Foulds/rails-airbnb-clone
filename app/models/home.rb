@@ -9,7 +9,6 @@ class Home < ApplicationRecord
 
   STATUS = %w(pending available appointment_made assigned)
   TYPE = %w(room studio flat maisonette bungalow house)
-  NUMBER_OF_ROOMS = %w(1 2 3 4)
 
 
   validates :address, presence: true

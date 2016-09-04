@@ -3,8 +3,6 @@
 @import "config/bootstrap_variables";
 
 // External libraries
-@import "bootstrap-sprockets";
-@import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -15,3 +13,21 @@
 @import "vendor/index";
 @import "bootstrap-datepicker";
 
+
+
+
+
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets";
+
+// Import cosmo variables
+@import "bootswatch/cosmo/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// And finally bootswatch style itself
+@import "bootswatch/cosmo/bootswatch";
+
+// Whatever application styles you have go last
+// @import "base";

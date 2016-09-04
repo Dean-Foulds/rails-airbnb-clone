@@ -16,6 +16,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'sass-rails'
+gem 'bootswatch-rails'
 gem 'jquery-rails'
 gem 'uglifier'
 gem 'bootstrap-sass'
