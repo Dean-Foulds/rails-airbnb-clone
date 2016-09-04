@@ -9,7 +9,7 @@
               <div class="legend">Contact us</div>
 
                 <div align="center">
-                  <%= form_for @message, url: contact_path do |message_form| %>
+                  <%= simple_form_for @message, url: contact_path do |message_form| %>
                   <fieldset>
                   <div class="field">
                     <%= message_form.text_field :name, placeholder: "Name" %>
