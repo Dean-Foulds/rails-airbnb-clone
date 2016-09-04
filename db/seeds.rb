@@ -27,7 +27,21 @@ Home.destroy_all
 #   home.save(validate: false)
 # end
 
+# puts "Fetching Properties from API..."
+# url = "http://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=hackney"
+# property_serialized = open(url).read
+# properties = JSON.parse(property_serialized)
+# properties["response"]["listings"].each do |p|
+#   puts "creating #{p["title"]}"
+#   home = Home.new(latitude: p["latitude"], longitude: p["longitude"], address: p["title"])
+#   home.pictures = [ open(p["img_url"]) ] unless p["img_url"].blank?
+#   home.save(validate: false)
+# end
 
+
+# create users
+# assign each home to 1 user
+#
 
 puts "Fetching Properties from API..."
 url = "http://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=hackney"

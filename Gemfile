@@ -31,6 +31,7 @@ gem "geocoder"
 gem "gmaps4rails"
 gem "nokogiri"
 gem "letter_opener", group: :development
+gem 'mail_form'
 
 group :development, :test do
   gem 'binding_of_caller'
