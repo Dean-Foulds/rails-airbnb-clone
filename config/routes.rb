@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
 
   get 'pages/about'
-  get '/contact', to: 'messages#new', as: :contact
-  post '/contact', to: 'messages#create', as: :update_contact
+
 
   resources :bookings, only: :show
 
@@ -15,6 +14,8 @@ Rails.application.routes.draw do
   get '/profile', to: 'profiles#show', as: :profile
   get '/profile/edit', to: 'profiles#edit', as: :edit_profile
   patch '/profile', to: 'profiles#update', as: :update_profile
+  get '/contact', to: 'messages#new', as: :contact
+  post '/contact', to: 'messages#create', as: :update_contact
 
   devise_for :users
 
