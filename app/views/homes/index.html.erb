@@ -2,7 +2,6 @@
 
 <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
   <%= text_field_tag :address, params[:address], :placeholder => "What address are you searching", :class => 'form-control' %>
-  <%= text_field_tag :post_code, params[:post_code], :placeholder => "What post_code are you searching", :class => 'form-control' %>
   <%= submit_tag 'Search', class: "btn btn-primary" %>
 <% end %>
 
@@ -32,7 +31,7 @@
 <div id="map" style="width: 100%; height: 600px;"></div>
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
+  <script>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
@@ -46,7 +45,7 @@
         }
       });
     });
-  <% end %>
+  </script>
 <% end %>
 
 
