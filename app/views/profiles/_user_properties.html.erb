@@ -1,1 +1,10 @@
 <!-- user properties.html partial -->
+
+<% current_user.homes.each do |home| %>
+  <ul class="attachinary-container">
+    <li><%= home.address %></li>
+    <li><%= home.post_code %></li>
+  </ul>
+<% end %>
+
+
