@@ -8,6 +8,7 @@
       </div>
       <div class="col-xs-6">
         <% @home.home_reviews.each do |r| %>
+        <p><%= r.created_at %></p>
         <p><%= r.content %></p>
         <% r.rating.times do %>
         <p><i class="fa fa-star text-primary"></i></p>

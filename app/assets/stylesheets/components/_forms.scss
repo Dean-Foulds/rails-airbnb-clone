@@ -1,8 +1,8 @@
-// using bootstrap sass
-.nested-fields {
-  @extend p;
-  margin-left: 160px
-}
+// // using bootstrap sass
+// .nested-fields {
+//   @extend p
+//   margin-left: 160px;
+// }
 
 .nested-fields-link {
   display: block;
@@ -19,8 +19,8 @@
   label {
     float: left;
     width: 100px;
-    text-align: right;
-    margin: 2px 10px;
+    text-align: left;
+    // margin: 2px 10px;
   }
 }
 
@@ -39,7 +39,7 @@ label.collection_radio_buttons {
   margin-right: 10px;
   vertical-align: -2px;
   margin-left: 2px;
-
+}
 
 .field_with_errors {
   background-color: #ff3333;
