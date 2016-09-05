@@ -1,54 +1,48 @@
-
 <div class="banner-blue">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-8">
-        <div class="feature-box">
-
-          <!-- TABS -->
-          <div class="" data-example-id="togglable-tabs">
-            <ul class="nav nav-tabs" id="myTabs" role="tablist">
-              <!-- PROPERTY tab -->
-              <li role="presentation" class="active">
-                <a href="#profile" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Profile
-                </a>
-              </li>
-              <!-- MAP tab -->
-              <li role="presentation">
-                <a href="#edit_profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Edit Profile
-                </a>
-              </li>
-
-              <!-- BOOKINGS tab -->
-              <li role="presentation">
-                <a href="#properties" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Properties
-                </a>
-              </li>
-
-              <!-- REVIEWS tab -->
-              <li role="presentation">
-                <a href="#bookings" role="tab" id="reviews-tab" data-toggle="tab" aria-controls="reviews">Bookings
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!-- RENDER PARTIALS to tabs -->
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade in active tab-color" role="tabpanel" id="profile">
-              <%= render "profile_show" %>
-            </div>
-            <div class="tab-pane fade tab-color" role="tabpanel" id="edit_profile">
-              <%= render 'profile_edit'%>
-            </div>
-            <div class="tab-pane fade tab-color"" role="tabpanel" id="properties">
-              <%= render 'user_properties' %>
-            </div>
-            <div class="tab-pane fade tab-color"" role="tabpanel" id="bookings">
-              <%= render 'landlord_bookings' %>
+        <main role="main" data-accessible="true">
+          <h1>Profile</h1>
+          <div class="tabs">
+            <div class="tabs-nav">
+              <ul role="tablist">
+                <li role="presentation">
+                  <button data-href="#profile" role="tab" aria-controls="profile" aria-selected="true" class="tabs-nav-option is--current">Profile</button>
+                </li>
+                <li role="presentation">
+                  <button data-href="#edit" role="tab" aria-controls="edit" class="tabs-nav-option">Edit profile</button>
+                </li>
+                <li role="presentation">
+                  <button data-href="#property" role="tab" aria-controls="property" class="tabs-nav-option">Properties</button>
+                </li>
+                <li role="presentation">
+                  <button data-href="#bookings" role="tab" aria-controls="bookings" class="tabs-nav-option">Bookings</button>
+                </li>
+              </ul>
+              <div class="tabs-content">
+                <div role="tabpanel" id="profile" class="tabs-panel">
+                  <%= render "profile_show" %>
+                </div>
+                <div role="tabpanel" id="edit" class="tabs-panel">
+                  <%= render 'profile_edit'%>
+                </div>
+                <div role="tabpanel" id="property" class="tabs-panel">
+                  <%= render 'user_properties' %>
+                </div>
+                <div role="tabpanel" id="property" class="tabs-panel">
+                  <%= render 'landlord_bookings' %>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </main>
       </div>
     </div>
+  </div>
+</div>
+
+
+
 
 

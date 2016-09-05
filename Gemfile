@@ -15,6 +15,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-datepicker'
 end
 
+gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'bootswatch-rails'
 gem 'jquery-rails'

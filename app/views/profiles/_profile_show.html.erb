@@ -1,17 +1,18 @@
 <!-- profile partial -->
 
-     <!-- PROFILE PHOTO -->
-      <div class="col-xs-3">
-        <% if current_user.avatar? %>
-          <%= cl_image_tag current_user.avatar.path, class: "avatar-large-sq " %>
-        <% end %>
-        </div>
+<!-- PROFILE PHOTO -->
+<div class="col-md-4">
+  <% if current_user.avatar? %>
+    <%= cl_image_tag current_user.avatar.path, class: "avatar-xl-sq" %>
+  <% end %>
+</div>
 
-      <div class="col-xs-offset-1 col-xs-5"> <!-- PROFILE TEXT -->
-          <p><%= current_user.first_name %> <%= current_user.last_name %><br>
-            <%= current_user.address %><br>
-            <%= current_user.city %><br>
-            <%= current_user.post_code %><br>
-            <%= current_user.company %></p>
-      </div>
+<!-- PROFILE TEXT -->
+<div class="col-md-offset-1 col-xs-6">
+    <h4>  <%= current_user.first_name %> <%= current_user.last_name %> </h4>
+    <p>   <%= current_user.company %>   </br>
+          <%= current_user.address %>   </br>
+          <%= current_user.city %>      </br>
+          <%= current_user.post_code %> </p>
+</div>
 
