@@ -22,7 +22,7 @@ class HomeReviewsController < ApplicationController
   end
 
   def home_review_params
-    params.require(:home_review).permit(:content, :rating)
+    params.require(:home_review).permit(:content, :repair_report, :rating)
   end
 
   # def set_user

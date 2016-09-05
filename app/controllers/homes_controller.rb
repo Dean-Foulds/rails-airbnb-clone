@@ -4,8 +4,7 @@ class HomesController < ApplicationController
 
   def index# GET /index
     @homes = policy_scope(Home).where(status: "available")
-    @homes = @homes.near(params[:address], 2) unless params[:address].blank?
-    @homes = @homes.near(params[:post_code], 2) unless params[:post_code].blank?
+    @homes = @homes.near(params[:address], 5) unless params[:address].blank?
     # @homes = @homes.where(number_of_rooms: params[:number_of_rooms]) unless params[:number_of_rooms].blank?
     @hash = Gmaps4rails.build_markers(@homes) do |home, marker|
       marker.lat home.latitude

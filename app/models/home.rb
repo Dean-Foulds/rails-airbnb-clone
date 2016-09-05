@@ -13,11 +13,12 @@ class Home < ApplicationRecord
 
   validates :address, presence: true
   validates :post_code, presence: true
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-    end
-  end
+
+  # def self.search(search)
+  #   if search
+  #     find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  #   end
+  # end
 
 
 
