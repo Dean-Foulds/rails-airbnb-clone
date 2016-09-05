@@ -1,1 +1,11 @@
 <!-- landlord bookings -->
+
+  <% current_user.homes.each do |home| %>
+  <% home.bookings.each do |b| %>
+  <ul class="attachinary-container">
+    <li><%= b.starts_at %></li>
+    <li><%= b.starts_at_time.strftime('%R') %></li>
+    <li><%= b.user[:email] %></li>
+  </ul>
+  <% end %>
+<% end %>
