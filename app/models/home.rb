@@ -2,7 +2,7 @@ class Home < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :home_reviews
   belongs_to :user
-  has_attachments :pictures, maximum: 10
+  has_attachments :pictures, maximum: 5
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
@@ -13,11 +13,12 @@ class Home < ApplicationRecord
 
   validates :address, presence: true
   validates :post_code, presence: true
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-    end
-  end
+
+  # def self.search(search)
+  #   if search
+  #     find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  #   end
+  # end
 
 
 
