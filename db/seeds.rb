@@ -10,8 +10,65 @@
 require "open-uri"
 require "nokogiri"
 require "json"
+require "faker"
 
 Home.destroy_all
+User.destroy_all
+
+
+puts "Fetching Properties from API..."
+url = "http://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=tower_hamlets"
+property_serialized = open(url).read
+properties = JSON.parse(property_serialized)
+properties["response"]["listings"].each do |p|
+  puts "creating #{p["title"]}"
+  home = Home.new(latitude: p["latitude"], longitude: p["longitude"], address: p["title"])
+  user = User.new(
+      first_name: Faker::Name.name,
+      email: Faker::Internet.email
+    )
+  user.save(validate: false)
+  home.user = user
+  home.save(validate: false)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # url = "http://www.dssmove.co.uk/property/search/?list_type=list&sortby=price&order=desc&agent_id=&pcode=&county=&location=London&radius=&bed-min=&bed-max=&type=flats-and-bedsits&price-min=&price-max=900"
@@ -43,16 +100,7 @@ Home.destroy_all
 # assign each home to 1 user
 #
 
-puts "Fetching Properties from API..."
-url = "http://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=hackney"
-property_serialized = open(url).read
-properties = JSON.parse(property_serialized)
-properties["response"]["listings"].each do |p|
-  puts "creating #{p["title"]}"
-  home = Home.new(latitude: p["latitude"], longitude: p["longitude"], address: p["title"])
-  #home.pictures = [ open(p["img_url"]) ] unless p["img_url"].blank?
-  home.save(validate: false)
-end
+
 
 
 
