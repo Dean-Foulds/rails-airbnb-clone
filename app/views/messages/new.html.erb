@@ -1,0 +1,37 @@
+<div class="banner-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="contact-form">
+          <div class="legend">Contact us</div>
+            <div align="center">
+            <%= simple_form_for @message, url: contact_path do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :name, placeholder: "Name" %>
+              <%= f.input :email, placeholder: "bob@bob.com" %>
+              <%= f.input :content, placeholder: "Message", as: :text %>
+              <%= f.error :base %>
+              <div style="text-align: right;">
+              <%= f.submit "Send", class: "btn btn-secondary" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
