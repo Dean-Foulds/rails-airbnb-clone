@@ -25,21 +25,6 @@
 <div class="banner-dark">
   <div class="container">
     <div class="row">
-<!-- <<<<<<< HEAD
-      <% @homes.each #do |home| %>
-      <div class="col-xs-6 col-sm-3 col-md-2">
-        <div class="card-gray">
-          <div class="card padded" style="background-image: url('<%= home.pictures.first ? cl_image_path(home.pictures.first.path) : #nil %>')">
-          </div>
-          <div class="card-details">
-            <%= home.address %>
-            <%= home.post_code %>
-            <%= home.status %>
-            <%= home.room_type %>
-            <%= home.number_of_rooms %>
-          </div>
-          <%= link_to #"#", home_path(home), class: "card-link" %>
-======= -->
       <div class="col-md-offset-1 col-md-10">
 
       <div class="section-h1-white">Property listings</div>
@@ -57,14 +42,9 @@
             </div>
               <%= link_to "#", home_path(home), class: "card-link" %>
           </div>
-<!-- >>>>>>> master -->
         </div>
       <% end %>
       </div>
-<!-- <<<<<<< HEAD
-      <% #end %>
-=======
->>>>>>> master -->
     </div>
   </div>
 </div>

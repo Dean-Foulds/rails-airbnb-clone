@@ -11,3 +11,12 @@
   App.cable = ActionCable.createConsumer();
 
 }).call(this);
+
+
+/* Demo purposes only */
+$(".hover").mouseleave(
+  function () {
+    $(this).removeClass("hover");
+  }
+);
+
