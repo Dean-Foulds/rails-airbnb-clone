@@ -1,5 +1,5 @@
 .homebug {
-    color: #FF8000;
+    color: #FF7518;
 }
 .contact-form {
     color: white;
@@ -9,11 +9,13 @@
     padding: 3rem;
     border-radius: 0 1rem 1rem 1rem;
 }
-.radio {
-    position: relative;
-    display: inline;
-    margin-left: 10px;
-    margin-right: 10px;
+.contact-form-drk {
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    border-radius: 0 1rem 1rem 1rem;
 }
 .legend {
     display: block;
@@ -36,17 +38,17 @@
   justify-content: center;
   position: relative;
 }
-.banner-yellow {
-  background: #FFB75E; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #FFB75E , #ED8F03); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #FFB75E , #ED8F03); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.banner-dark {
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
 .banner-green {
-  background: #56ab2f; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #56ab2f , #a8e063); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #56ab2f , #a8e063); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ADD100; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #ADD100 , #7B920A); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #ADD100 , #7B920A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .banner-blue {
   min-height: 100vh;

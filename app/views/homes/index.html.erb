@@ -1,4 +1,4 @@
-<h1 class="text-center">Property listing</h1>
+
 
 <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
 <%= text_field_tag :address, params[:address], :placeholder => "What address are you searching", :class => 'form-control' %>
@@ -22,13 +22,14 @@
 <% end %>
 
 
-<div class="p-wrapper">
+<div class="banner-dark">
   <div class="container">
     <div class="row">
-      <% @homes.each do |home| %>
+<!-- <<<<<<< HEAD
+      <% @homes.each #do |home| %>
       <div class="col-xs-6 col-sm-3 col-md-2">
         <div class="card-gray">
-          <div class="card padded" style="background-image: url('<%= home.pictures.first ? cl_image_path(home.pictures.first.path) : nil %>')">
+          <div class="card padded" style="background-image: url('<%= home.pictures.first ? cl_image_path(home.pictures.first.path) : #nil %>')">
           </div>
           <div class="card-details">
             <%= home.address %>
@@ -37,10 +38,33 @@
             <%= home.room_type %>
             <%= home.number_of_rooms %>
           </div>
-          <%= link_to "#", home_path(home), class: "card-link" %>
+          <%= link_to #"#", home_path(home), class: "card-link" %>
+======= -->
+      <div class="col-md-offset-1 col-md-10">
+
+      <div class="section-h1-white">Property listings</div>
+
+      <% @homes.each do |home| %>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <div class="card-gray">
+            <div class="card padded" style="background-image: url('<%= home.pictures.first ? cl_image_path(home.pictures.first.path) : nil %>')">
+            </div>
+            <div class="card-details">
+              <%= home.address %>
+              <%= home.post_code %>
+              <%= home.status %>
+
+            </div>
+              <%= link_to "#", home_path(home), class: "card-link" %>
+          </div>
+<!-- >>>>>>> master -->
         </div>
-      </div>
       <% end %>
+      </div>
+<!-- <<<<<<< HEAD
+      <% #end %>
+=======
+>>>>>>> master -->
     </div>
   </div>
 </div>
