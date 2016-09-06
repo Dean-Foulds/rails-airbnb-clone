@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -21,6 +22,11 @@ class ApplicationController < ActionController::Base
   # def skip_pundit?
   #   devise_controller? || params[:controller] =~ /(^(active_)?admin)|(^pages$)/
   # end
+  #
+  def user_not_authorized
+    flash[:alert] = "Stop hacking this site - police have been notified!"
+    redirect_to(request.referrer || root_path)
+  end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
