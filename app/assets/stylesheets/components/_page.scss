@@ -1,9 +1,24 @@
+
+.green-sm {
+  font-size: 15px;
+  font-weight: normal;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  color: teal;
+  text-align: left;
+}
+blockquote p {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333333;
+}
 .wrapper-grey {
   background-color: lightgrey;
 }
-.half-page {
-  height: 20vh;
-}
+// .half-page {
+//   height: 20vh;
+// }
 
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 .snip1552 {
@@ -92,10 +107,3 @@
   opacity: 1;
 }
 
-
-/* Demo purposes only */
-
-// body {
-//   background-color: #212121;
-//   text-align: center;
-// }

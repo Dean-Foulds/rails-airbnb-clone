@@ -2,18 +2,23 @@
   <%= simple_form_for [@home, @home_review] do |f| %>
   <%= f.input :content, as: :text, placeholder: "What was your experience?" %>
   <%= f.input :repair_report, as: :text, placeholder: "What is state of repair?" %>
-  <%= f.input :rating, collection: 1..5 %>
+  <%= f.input :rating, :collection => [1,2,3,4,5] %>
   <%= f.submit "Add review", class: "btn btn-primary" %>
   <% end %>
 </div>
+
 <div class="col-xs-6">
-  <% @home.home_reviews.each do |r| %>
-  <p><%= r.created_at %></p>
-  <p><%= r.repair_report%></p>
-  <p><%= r.content %></p>
-  <% r.rating.times do %>
-  <p><i class="fa fa-star text-primary"></i></p>
-  <% end %>
+    <% @home.home_reviews.each do |r| %>
+  <div class="well well-sm">
+      <p><small><%= r.created_at %> </small></p>
+      <p><%= r.repair_report%></p>
+      <p><%= r.content %></p>
+    <div class="stars">
+      <% r.rating.times do %>
+      <i class="fa fa-star text-primary"></i>
+      <% end %>
+    </div>
+  </div>
   <% end %>
 </div>
 

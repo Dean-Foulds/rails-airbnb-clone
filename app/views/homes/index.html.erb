@@ -1,31 +1,32 @@
+      <div class="search-pop-out">
+        <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
+        <%= text_field_tag :address, params[:address], :placeholder => "Address or post code", :class => 'form-control' %>
+        <% Home::TYPE.each do |type| %> <br>
 
+        <label for="Type">
+          <%= type %>
+          <% checked = params[:types].include?(type) ? "checked" : "" if params[:types] %>
+          <input type="checkbox" value="<%= type %>" name="types[]" id="<%= type %>" <%= checked %>
+        </label>
+        <% end %>
 
-<%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
-<%= text_field_tag :address, params[:address], :placeholder => "What address are you searching", :class => 'form-control' %>
-<% Home::TYPE.each do |type| %>
-<label for="<%= type %>">
-  <%= type %>
-  <% checked = params[:types].include?(type) ? "checked" : "" if params[:types] %>
-  <input type="checkbox" value="<%= type %>" name="types[]" id="<%= type %>" <%= checked %>>
-</label>
-<% end %>
+        <% Home::NUMBER_OF_ROOMS.each do |room| %>
+        <label for="<%= room %>">
+          <%= room %>
+          <% checked = params[:rooms].include?(room) ? "checked" : "" if params[:rooms] %>
+          <input type="checkbox" value="<%= room %>" name="rooms[]" id="<%= room %>" <%= checked %>>
+        </label>
+        <% end %>
 
-<% Home::NUMBER_OF_ROOMS.each do |room| %>
-<label for="<%= room %>">
-  <%= room %>
-  <% checked = params[:rooms].include?(room) ? "checked" : "" if params[:rooms] %>
-  <input type="checkbox" value="<%= room %>" name="rooms[]" id="<%= room %>" <%= checked %>>
-</label>
-<% end %>
-
-<%= submit_tag 'Search', class: "btn btn-primary" %>
-<% end %>
+        <%= submit_tag 'Search', class: "btn btn-primary" %>
+        <% end %>
+      </div>
 
 
 <div class="banner-dark">
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-1 col-md-10">
+      <div class="col-md-offset-2 col-md-9">
 
       <div class="section-h1-white">Property listings</div>
 

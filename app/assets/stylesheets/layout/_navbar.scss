@@ -1,8 +1,6 @@
 .navbar1 {
     position: relative;
     padding: 20px;
-    display: flex;
-    align-items: center;
     border-radius: 0;
     margin: 0;
 }
@@ -11,6 +9,7 @@
 }
 
 .nav > li > a {
+  font-size: 18px;
   color: #222222;
 }
 
