@@ -1,15 +1,31 @@
 <h1 class="text-center">Property listing</h1>
 
 <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
-  <%= text_field_tag :address, params[:address], :placeholder => "What address are you searching", :class => 'form-control' %>
-  <%= submit_tag 'Search', class: "btn btn-primary" %>
+<%= text_field_tag :address, params[:address], :placeholder => "What address are you searching", :class => 'form-control' %>
+<% Home::TYPE.each do |type| %>
+<label for="<%= type %>">
+  <%= type %>
+  <% checked = params[:types].include?(type) ? "checked" : "" if params[:types] %>
+  <input type="checkbox" value="<%= type %>" name="types[]" id="<%= type %>" <%= checked %>>
+</label>
+<% end %>
+
+<% Home::NUMBER_OF_ROOMS.each do |room| %>
+<label for="<%= room %>">
+  <%= room %>
+  <% checked = params[:rooms].include?(room) ? "checked" : "" if params[:rooms] %>
+  <input type="checkbox" value="<%= room %>" name="rooms[]" id="<%= room %>" <%= checked %>>
+</label>
+<% end %>
+
+<%= submit_tag 'Search', class: "btn btn-primary" %>
 <% end %>
 
 
 <div class="p-wrapper">
   <div class="container">
     <div class="row">
-    <% @homes.each do |home| %>
+      <% @homes.each do |home| %>
       <div class="col-xs-6 col-sm-3 col-md-2">
         <div class="card-gray">
           <div class="card padded" style="background-image: url('<%= home.pictures.first ? cl_image_path(home.pictures.first.path) : nil %>')">
@@ -18,12 +34,13 @@
             <%= home.address %>
             <%= home.post_code %>
             <%= home.status %>
-
+            <%= home.room_type %>
+            <%= home.number_of_rooms %>
           </div>
-            <%= link_to "#", home_path(home), class: "card-link" %>
+          <%= link_to "#", home_path(home), class: "card-link" %>
         </div>
       </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -31,21 +48,62 @@
 <div id="map" style="width: 100%; height: 600px;"></div>
 
 <% content_for(:after_js) do %>
-  <script>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
+<script>
+  $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      var map = handler.getMap();
+
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        map.setZoom(6);
+      } else if (markers.length == 1) {
+        map.setZoom(14);
+      }
+
+      var infowindow = new google.maps.InfoWindow();
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location,
+          icon: new google.maps.MarkerImage(
+            place.icon,
+            null, /* size is determined at runtime */
+            null, /* origin is 0,0 */
+            null, /* anchor is bottom center of the scaled image */
+            new google.maps.Size(32, 32)
+            )
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          console.log(place);
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: map.getCenter(),
+        radius: 10000,
+        type: ['doctor']
+      }, function (results, status) {
+        console.log(results);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            createMarker(place);
+          }
         }
-      });
+
+      })
     });
-  </script>
+  });
+</script>
 <% end %>
 
 
