@@ -45,7 +45,6 @@ $colors: (
   margin-top: 20px;
 }
 
-
 .tabs{
   &-nav{
     ul{
@@ -60,30 +59,36 @@ $colors: (
       padding: 1rem 2rem;
       margin: 0;
       border: 0;
-      border-radius: 1rem 1rem 0 0;
+      border-radius: 0.75rem 0.75rem 0 0;
       color: color(ocean);
       background: color(teal);
       &:not(.is--active){
         box-shadow: inset 0 -.25rem 0 0 darken(color(teal),5%);
+        outline: none;
+        border: none;
       }
       &.is--active{
         background: white;
         color: color(ocean);
+        outline: none;
+        border: none;
       }
     }
   }
   &-panel{
     position: relative;
-    min-height: 250px;
+    min-height: 400px;
     width: 100%;
     display: none;
     padding: 2rem;
     margin-bottom: 2rem;
-    border-radius: 0 1rem 1rem 1rem;
+    border-radius: 0 0.75rem 0.75rem 0.75rem;
     background: white;
     color: color(ocean);
     &.is--active{
       display: block;
+      outline: none;
+      border: none;
     }
   }
 }

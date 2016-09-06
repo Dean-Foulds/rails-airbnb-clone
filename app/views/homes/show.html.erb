@@ -10,7 +10,8 @@
 
               <ul role="tablist">
                 <li role="presentation">
-                  <button data-href="#details" role="tab" aria-controls="details" aria-selected="true" class="tabs-nav-option is--current">Details</button>
+                  <button data-href="#details" role="tab" aria-controls="details" aria-selected="true" class="tabs-nav-option is--current">
+                  Details</button>
                 </li>
                 <li role="presentation">
                   <button data-href="#map" role="tab" aria-controls="map" class="tabs-nav-option">Location map</button>
@@ -26,19 +27,18 @@
 
               <div class="tabs-content">
                 <div role="tabpanel" id="details" class="tabs-panel">
-                  <%= render "property-details" %>
+                  <%= render 'property-details' %>
                 </div>
                 <div role="tabpanel" id="map" class="tabs-panel">
                   <%= render "map" %>
                 </div>
                 <div role="tabpanel" id="bookings" class="tabs-panel">
-                  <%= render "bookings", bookings: @home.bookings %>
+                  <%= render 'bookings', bookings: @home.bookings %>
                 </div>
                 <div role="tabpanel" id="reviews" class="tabs-panel">
                   <%= render "reviews" %>
                 </div>
               </div>
-
             </div>
           </div>
         </main>

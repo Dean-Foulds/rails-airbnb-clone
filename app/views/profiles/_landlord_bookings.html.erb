@@ -1,11 +1,26 @@
 <!-- landlord bookings -->
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Name</th>
+      <th>Company</th>
+      <th>Actions</th>
 
-  <% current_user.homes.each do |home| %>
-  <% home.bookings.each do |b| %>
-  <ul class="attachinary-container">
-    <li><%= b.starts_at %></li>
-    <li><%= b.starts_at_time.strftime('%R') %></li>
-    <li><%= b.user[:email] %></li>
-  </ul>
-  <% end %>
-<% end %>
+    </tr>
+  </thead>
+  <tbody class="">
+    <% current_user.homes.each do |home| %>
+      <% home.bookings.each do |b| %> <!-- iternation -->
+        <tr>
+          <td><%= b.starts_at %></td>
+          <td><%= b.starts_at_time.strftime('%R') %></td>
+          <td><%= b.user[:email] %></td>
+          <td><%= current_user.company %></td>
+          <td><a href="#" class="btn btn-primary btn-sm">Edit</a> <a href="#" class="btn btn-default btn-sm">Delete</a></td>
+        </tr>
+      <% end %> <!-- iternation end -->
+    <% end %> <!-- iternation end -->
+  </tbody>
+</table>
