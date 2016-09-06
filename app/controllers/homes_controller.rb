@@ -3,9 +3,11 @@ class HomesController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
 
   def index# GET /index
+
     @homes = policy_scope(Home).where(status: "available")
-    @homes = @homes.near(params[:address], 5) unless params[:address].blank?
-    # @homes = @homes.where(number_of_rooms: params[:number_of_rooms]) unless params[:number_of_rooms].blank?
+    @homes = @homes.near(params[:address], 5) if params[:address]
+    @homes = @homes.where(room_type: params[:types]) if params[:types]
+    @homes = @homes.where(number_of_rooms: params[:rooms]) if params[:rooms]
     @hash = Gmaps4rails.build_markers(@homes) do |home, marker|
       marker.lat home.latitude
       marker.lng home.longitude

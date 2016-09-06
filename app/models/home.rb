@@ -9,10 +9,16 @@ class Home < ApplicationRecord
 
   STATUS = %w(pending available appointment_made assigned)
   TYPE = %w(room studio flat maisonette bungalow house)
+  NUMBER_OF_ROOMS = %w(1 2 3 4)
 
 
   validates :address, presence: true
   validates :post_code, presence: true
+
+  # scope :status, -> (status) { where status: status }
+  # scope :location, -> (location_id) { where location_id: location_id }
+  # scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
+
 
   # def self.search(search)
   #   if search
