@@ -47,6 +47,12 @@ class BookingsController < ApplicationController
   end
 end
 
+
+
+#!!!!!!!!!!!!! must implement at some stage!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+#
+#
 # def send_booking_confirmation
   #   BookingMailer.booking_confirmation(self).deliver
   # end

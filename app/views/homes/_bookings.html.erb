@@ -16,7 +16,13 @@
         <td><%= booking.starts_at_time.strftime('%R') %></td>
         <td><%= current_user.email %></td>
         <td><%= current_user.company %></td>
-        <td><a href="#" class="btn btn-primary btn-sm">Edit</a> <a href="#" class="btn btn-default btn-sm">Delete</a></td>
+        <td><% if current_user %>
+       <%= link_to "Delete", booking_path(booking), :class => "btn btn-default btn-sm",
+       method: :delete,
+       data: { confirm: "Are you sure?" } %>
+       <% end %>
+       </td>
+
       </tr>
       <% end %> <!-- iternation end -->
 

@@ -1,27 +1,27 @@
-      <div class="search-pop-out">
-        <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
-        <%= text_field_tag :address, params[:address], :placeholder => "Address or post code", :class => 'form-control' %>
-        <% Home::TYPE.each do |type| %> <br>
 
-        <label for="Type">
-          <%= type %>
-          <% checked = params[:types].include?(type) ? "checked" : "" if params[:types] %>
-          <input type="checkbox" value="<%= type %>" name="types[]" id="<%= type %>" <%= checked %>
-        </label>
-        <% end %>
+<div class="search-pop-out">
+  <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
+  <%= text_field_tag :address, params[:address], :placeholder => "Address or post code", :class => 'form-control' %>
+  <% Home::TYPE.each do |type| %> <br>
 
-        <% Home::NUMBER_OF_ROOMS.each do |room| %>
-        <label for="<%= room %>">
-          <%= room %>
-          <% checked = params[:rooms].include?(room) ? "checked" : "" if params[:rooms] %>
-          <input type="checkbox" value="<%= room %>" name="rooms[]" id="<%= room %>" <%= checked %>>
-        </label>
-        <% end %>
+  <label for="Type">
+    <%= type %>
+    <% checked = params[:types].include?(type) ? "checked" : "" if params[:types] %>
+    <input type="checkbox" value="<%= type %>" name="types[]" id="<%= type %>" <%= checked %>
+  </label>
+  <% end %>
 
-        <%= submit_tag 'Search', class: "btn btn-primary" %>
-        <% end %>
-      </div>
+  <% Home::NUMBER_OF_ROOMS.each do |room| %>
+  <label for="<%= room %>">
+    <%= room %>
+    <% checked = params[:rooms].include?(room) ? "checked" : "" if params[:rooms] %>
+    <input type="checkbox" value="<%= room %>" name="rooms[]" id="<%= room %>" <%= checked %>>
+  </label>
+  <% end %>
 
+  <%= submit_tag 'Search', class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="banner-dark">
   <div class="container">
@@ -110,14 +110,3 @@
   });
 </script>
 <% end %>
-
-
-
-
-
-
-
-
-
-
-
