@@ -3,6 +3,11 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
+.container-fluid {
+  height: 100vh;
+  background-color: #F4F4F4;
+}
+
 .attachinary-container li {
   list-style: none;
 }
@@ -18,6 +23,7 @@
 .landlord-section {
   padding: 120px 0 60px !important;
   margin: 0 !important;
+
 
   .row-left {
     background: -webkit-linear-gradient(-115deg, #FF7518 36%,  #fff 36%);
