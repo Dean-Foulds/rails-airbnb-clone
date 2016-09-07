@@ -33,11 +33,12 @@ gem "gmaps4rails"
 gem "nokogiri"
 gem "letter_opener", group: :development
 gem 'mail_form'
+gem 'faker'
 
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
-  gem 'faker'
+
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'

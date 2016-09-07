@@ -1,32 +1,31 @@
 <!-- profile edit -->
+    <%= simple_form_for(current_user, url: update_profile_path) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :first_name, placeholder: "First name" %>
+    <%= f.input :last_name, placeholder: "Las name" %>
+    <%= f.input :email, placeholder: "bob@bob.com" %>
+    <%= f.input :address, placeholder: "Downing Street" %>
+    <%= f.input :city, placeholder: "London" %>
+    <%= f.input :post_code, placeholder: "SW1 3HB" %>
+    <%= f.input :company, placeholder: "Company name" %>
+    <%= f.input :mobile_number, placeholder: "07689 123 456" %>
+    <%= f.input :avatar, as: :attachinary %>
+    <%= f.error :base %>
+    <div style="text-align: right;">
+    <%= f.submit "Save", class: "btn btn-default btn-sm" %>
+    </div>
+  <% end %>
 
-            <%= simple_form_for(current_user, url: update_profile_path) do |f| %>
-            <%= f.error_notification %>
-            <%= f.input :first_name, placeholder: "First name" %>
-            <%= f.input :last_name, placeholder: "Las name" %>
-            <%= f.input :email, placeholder: "bob@bob.com" %>
-            <%= f.input :address, placeholder: "Downing Street" %>
-            <%= f.input :city, placeholder: "London" %>
-            <%= f.input :post_code, placeholder: "SW1 3HB" %>
-            <%= f.input :company, placeholder: "Company name" %>
-            <%= f.input :mobile_number, placeholder: "07689 123 456" %>
-            <%= f.input :avatar, as: :attachinary %>
-            <%= f.error :base %>
-            <div style="text-align: right;">
-            <%= f.submit "Save", class: "btn btn-default btn-sm" %>
-            </div>
-          <% end %>
-
-        <script>
-          function submitForm() {
-             // Get the first form with the name
-             // Hopefully there is only one, but there are more, select the correct index
-             var frm = document.getElementsByName('contact-form')[0];
-             frm.submit(); // Submit
-             frm.reset();  // Reset
-             return false; // Prevent page refresh
-          }
-        </script>
+<script>
+  function submitForm() {
+     // Get the first form with the name
+     // Hopefully there is only one, but there are more, select the correct index
+     var frm = document.getElementsByName('contact-form')[0];
+     frm.submit(); // Submit
+     frm.reset();  // Reset
+     return false; // Prevent page refresh
+  }
+</script>
 
 
 

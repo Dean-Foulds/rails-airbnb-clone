@@ -1,8 +1,11 @@
+<!-- SEARCH FORM  -->
 
-<div class="search-pop-out">
-    <div class="notice"><%= flash[:notice] %></div>
+
+
+
+
   <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
-  <%= text_field_tag :address, params[:address], :placeholder => "Address or post code", :class => 'form-control' %>
+  <%= text_field_tag :address, params[:address], :placeholder => "Enter Full Postcode", :class => 'form-control' %>
   <% Home::TYPE.each do |type| %> <br>
 
   <label for="Type">
