@@ -82,12 +82,15 @@ else
       <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p> <br>
 
       <div class="text-left">
-       <% if current_user %>
-       <%= link_to "Edit ", edit_home_path(@home), :class => "btn btn-primary btn-sm" %>
-       <%= link_to "Delete", home_path(@home), :class => "btn btn-default btn-sm",
-       method: :delete,
-       data: { confirm: "Are you sure?" } %>
-       <% end %>
+        <% if policy(@home).update? %>
+          <%= link_to "Edit", edit_home_path(@home), :class => "btn btn-primary btn-sm" %>
+        <% end %>
+
+        <% if policy(@home).destroy? %>
+          <%= link_to "Delete", home_path(@home), :class => "btn btn-default btn-sm",
+             method: :delete,
+             data: { confirm: "Are you sure?" } %>
+        <% end %>
      </div>
    </div> <!-- end of right col -->
  </div> <!-- end of col 12 -->
