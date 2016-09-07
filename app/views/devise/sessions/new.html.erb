@@ -1,6 +1,7 @@
-<div class="container">
+
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-3">
+    <div class="col-xs-4 col-xs-offset-4 margin">
 
       <h2>Log in</h2>
 
@@ -12,9 +13,9 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in", class: "btn btn-primary form-button" %>
+          <%= f.button :submit, "Log in", class: "btn btn-default form-button" %>
         </div>
-      <% end %>
+      <% end %> <br />
 
       <%= render "devise/shared/links" %>
 

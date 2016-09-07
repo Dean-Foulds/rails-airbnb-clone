@@ -37,13 +37,19 @@
   align-items: center;
   justify-content: center;
   position: relative;
-}
-.banner-dark {
-  background: #232526; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+  background: url("https://hd.unsplash.com/photo-1429080778300-b6d648427880") no-repeat center;
 
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(to left, rgba(35, 37, 38, 0.6) , rgba(65, 67, 69, 0.6)); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, rgba(35, 37, 38, 0.6), rgba(65, 67, 69, 0.6)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}
 
 .banner-green {
   background: #ADD100; /* fallback for old browsers */

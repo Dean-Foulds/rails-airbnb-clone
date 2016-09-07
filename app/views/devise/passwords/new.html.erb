@@ -1,6 +1,6 @@
- <div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-3">
+    <div class="col-xs-4 col-xs-offset-4 margin">
 
       <h2>Forgot your password?</h2>
 
@@ -12,9 +12,9 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Send me reset password instructions", class: "form-button btn btn-primary" %>
+          <%= f.button :submit, "Reset password", class: "form-button btn btn-default" %>
         </div>
-      <% end %>
+      <% end %> <br>
 
        <%= render "devise/shared/links" %>
     </div>
