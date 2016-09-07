@@ -1,6 +1,4 @@
-<!-- profile partial -->
 
-<!-- PROFILE PHOTO -->
 <div class="col-md-4">
   <% if current_user.avatar? %>
     <%= cl_image_tag current_user.avatar.path, class: "avatar-large" %>
