@@ -8,11 +8,6 @@
   margin-bottom: 10px;
   border: 1 solid black;
 }
-.card-gray {
-  background: rgb(230,230,230);
-  position: relative;
-  height: 260px;
-}
 .card-user {
   position: absolute;
   right: 10px;
@@ -30,20 +25,26 @@
 }
 .card-details {
   padding: 10px;
-  }
+}
+.card-gray {
+  background: rgb(230,230,230);
+  position: relative;
+  height: 260px;
+  width: 100%;
+}
 .card-link {
   position: absolute;
   top: 0;
-  bottom: 0;
+  height: 260px;
   width: 100%;
-  z-index:2;
+  z-index: 2;
   background: black;
   opacity: 0;
 }
 .card-link:hover{
   opacity: 0.3;
 }
-.card.padded {
+.card-padded {
   margin-top: 2em;
   height: 150px;
 }

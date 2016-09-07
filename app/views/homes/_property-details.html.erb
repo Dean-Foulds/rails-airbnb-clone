@@ -27,71 +27,53 @@ else
       <!-- PROPERTY DETAILS -->
 
       <h2 class="featurette-heading"> <%= @home.address %></h2>
-      <p class="text-success">  <%= @home.post_code %> </p>
-      <div class="status">
+        <h3>  <%= @home.post_code %> </h3>
 
-        <% if @home.status == "" %>
-        No status
-        <% else %>
-        <div class="logo-block">
-          <i class="fa fa-key" aria-hidden="true"></i>
-          <p> <%= @home.status %></p>
-        </div>
-        <% end %>
-
-        <% if @home.room_type == "" %> <br>
-        No status
-        <% else %>
-        <div class="logo-block">
-          <i class="fa fa-home" aria-hidden="true"></i>
-          <p> <%= @home.room_type %>  </p>
-        </div>
-        <% end %>
-
-        <% if @home.number_of_rooms == "" %> <br>
-        No status
-        <% else %>
-        <div class="logo-block">
-          <i class="fa fa-bed" aria-hidden="true"></i>
-          <p> <%= @home.number_of_rooms %>  </p>
-        </div>
-        <% end %>
-      </div>
-
-      <p>Description</p>
-      <h2 class="featurette-heading"> <%= @home.address %></h2>
-      <p class="text-info">  <%= @home.post_code %> </p>
-      <div class="status">
-        <% if @home.status == "" %>
-        No status
-        <% else %>
-        <%= @home.status %>
-        <% end %>
-        <% if @home.room_type == "" %>
-        No status
-        <% else %>
-        <%= @home.room_type %>
-        <% end %>
-        <% if @home.number_of_rooms == "" %>
-        No status
-        <% else %>
-        <%= @home.number_of_rooms %> "rooms"
-        <% end %>
-      </div>
 
       <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p> <br>
 
       <div class="text-left">
         <% if policy(@home).update? %>
-          <%= link_to "Edit", edit_home_path(@home), :class => "btn btn-primary btn-sm" %>
+          <%= link_to "Edit", edit_home_path(@home), :class => "btn btn-success" %>
         <% end %>
 
         <% if policy(@home).destroy? %>
-          <%= link_to "Delete", home_path(@home), :class => "btn btn-default btn-sm",
+          <%= link_to "Delete", home_path(@home), :class => "btn btn-default",
              method: :delete,
              data: { confirm: "Are you sure?" } %>
         <% end %>
      </div>
+
+      <div class="status">
+
+        <% if @home.status == "" %>
+          No status
+        <% else %>
+          <div class="logo-block">
+            <i class="fa fa-key" aria-hidden="true"></i>
+            <p> <%= @home.status %></p>
+          </div>
+        <% end %>
+
+        <% if @home.room_type == "" %> <br>
+          No status
+        <% else %>
+          <div class="logo-block">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <p> <%= @home.room_type %>  </p>
+          </div>
+        <% end %>
+
+        <% if @home.number_of_rooms == "" %> <br>
+          No status
+        <% else %>
+          <div class="logo-block">
+          <i class="fa fa-bed" aria-hidden="true"></i>
+          <p> <%= @home.number_of_rooms %>  </p>
+          </div>
+        <% end %>
+      </div>
+
    </div> <!-- end of right col -->
  </div> <!-- end of col 12 -->
 </div>
