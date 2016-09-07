@@ -1,9 +1,5 @@
 <!-- SEARCH FORM  -->
 
-
-
-
-
   <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
   <%= text_field_tag :address, params[:address], :placeholder => "Enter Full Postcode", :class => 'form-control' %>
   <% Home::TYPE.each do |type| %> <br>
