@@ -4,7 +4,6 @@ class HomesController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def index# GET /index
-    flash[:notice] = "Please enter full postcode"
     @homes = policy_scope(Home).where(status: "available")
     @homes = @homes.near(params[:address], 5) if params[:address]
     @homes = @homes.where(room_type: params[:types]) if params[:types]
@@ -12,7 +11,6 @@ class HomesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@homes) do |home, marker|
       marker.lat home.latitude
       marker.lng home.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
 
