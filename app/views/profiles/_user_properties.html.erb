@@ -1,5 +1,5 @@
 
-
+<div class="container">
   <% current_user.homes.each do |home| %>
     <%= link_to "#{home.address} #{home.post_code}", home_path(home) %>
     <% if home.pictures.first
@@ -11,6 +11,8 @@
     <div class="avatar" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 100%, rgba(0,36,61,0.0) 100%), url('<%= main_home_picture %>') ;">
     </div>
   <% end %>
+</div>
+
 
 <!-- user properties.html partial -->
 
