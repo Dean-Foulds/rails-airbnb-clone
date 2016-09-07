@@ -24,7 +24,6 @@ class Home < ApplicationRecord
   #   if search
   #     find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
   #   end
-  # end
 
 
 
