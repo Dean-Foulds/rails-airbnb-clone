@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_home, only: [:show, :edit, :update, :destroy]
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def index# GET /index
 
@@ -57,6 +58,11 @@ class HomesController < ApplicationController
 
   # Never trust parameters from the scary
   # internet, only allow the white list.
+  #
+   def user_not_authorized
+    flash[:alert] = "You are not authorised to complete this action"
+    redirect_to(request.referrer || root_path)
+  end
 
   def set_home
     @home = Home.find(params[:id])
