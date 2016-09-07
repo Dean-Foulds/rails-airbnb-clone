@@ -6,6 +6,47 @@
 .attachinary-container li {
   list-style: none;
 }
+.home-header {
+  position: relative;
+  z-index: 10;
+  h3 {
+    margin-bottom: 55px;
+  }
 
+}
+
+.landlord-section {
+  padding: 120px 0 60px !important;
+  margin: 0 !important;
+
+  .row-left {
+    background: -webkit-linear-gradient(-115deg, #FF7518 36%,  #fff 36%);
+    background: linear-gradient(-115deg, #FF7518 36%,  #fff 36%);
+  }
+
+  .row-right {
+    background: -webkit-linear-gradient(-60deg, #fff 64%, #FF7518 64%);
+    background: linear-gradient(-60deg, #fff 64%, #FF7518 64%);
+  }
+
+  .content-item {
+    text-align: center;
+    padding: 40px 20px;
+
+    .fa {
+      font-size: 45px;
+    }
+
+    h3 {
+      margin: 25px 0 15px;
+      font-size: 23px;
+    }
+
+    p {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
 
 
