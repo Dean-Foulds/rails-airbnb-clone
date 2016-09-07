@@ -1,9 +1,7 @@
-<!-- profile partial -->
 
-<!-- PROFILE PHOTO -->
 <div class="col-md-4">
   <% if current_user.avatar? %>
-    <%= cl_image_tag current_user.avatar.path, class: "avatar-xl-sq" %>
+    <%= cl_image_tag current_user.avatar.path, class: "avatar-large" %>
   <% end %>
 </div>
 
@@ -13,6 +11,8 @@
     <p>   <%= current_user.company %>   </br>
           <%= current_user.address %>   </br>
           <%= current_user.city %>      </br>
-          <%= current_user.post_code %> </p>
+          <%= current_user.email %>     </br>
+          <%= current_user.mobile_number %></p>
+
 </div>
 

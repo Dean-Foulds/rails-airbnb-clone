@@ -1,10 +1,19 @@
-<!-- user properties.html partial -->
 
-<% current_user.homes.each do |home| %>
-  <ul class="attachinary-container">
-    <li><%= home.address %></li>
-    <li><%= home.post_code %></li>
-  </ul>
-<% end %>
+<div class="container">
+  <% current_user.homes.each do |home| %>
+    <%= link_to "#{home.address} #{home.post_code}", home_path(home) %>
+    <% if home.pictures.first
+    main_home_picture = cl_image_path home.pictures.first.path
+       else
+    main_home_picture = ""
+       end %>
+
+    <div class="avatar" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.0) 100%, rgba(0,36,61,0.0) 100%), url('<%= main_home_picture %>') ;">
+    </div>
+  <% end %>
+</div>
+
+
+<!-- user properties.html partial -->
 
 
