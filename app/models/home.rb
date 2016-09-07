@@ -6,9 +6,9 @@ class Home < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  STATUS = %w(Pending Available Appointment Assigned)
+  TYPE = %w(Room Studio Flat Maisonette Bungalow House)
 
-  STATUS = %w(pending available appointment_made assigned)
-  TYPE = %w(room studio flat maisonette bungalow house)
   NUMBER_OF_ROOMS = %w(1 2 3 4)
 
 

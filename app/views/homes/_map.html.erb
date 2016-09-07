@@ -1,13 +1,13 @@
 
 <div class="col-sm-12">
-  <div id="map-content" style="height: 350px; width: 100%;">
+  <div id="map-content" style="height: 360px; width: 100%;">
   </div>
 </div>
 
 <!-- SCRIPT -->
 <% content_for(:after_js) do %>
   <script>
-    $("[href='#map']").click(function() {
+    $("[data-href='#map']").click(function() {
       setTimeout(function() {
         var handler = Gmaps.build('Google');
         handler.buildMap({ internal: { id: 'map-content' } }, function() {
@@ -20,7 +20,7 @@
             handler.getMap().setZoom(14);
           }
         });
-      }, 300);  // Need some delay to let the div in tab appear before building the map.
+      }, 400);  // Need some delay to let the div in tab appear before building the map.
     });
   </script>
 <% end %>
