@@ -17,8 +17,8 @@
           <td><%= b.starts_at %></td>
           <td><%= b.starts_at_time.strftime('%R') %></td>
           <td><%= b.user[:email] %></td>
-          <td><%= current_user.company %></td>
-          <td><a href="#" class="btn btn-primary btn-sm">Edit</a> <a href="#" class="btn btn-default btn-sm">Delete</a></td>
+          <td><%= b.user[:company] %></td>
+          <td><a href="#" class="btn btn-default btn-sm">Delete</a></td>
         </tr>
       <% end %> <!-- iternation end -->
     <% end %> <!-- iternation end -->
