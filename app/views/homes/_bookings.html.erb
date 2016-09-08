@@ -17,7 +17,7 @@
         <td><%= current_user.email %></td>
         <td><%= current_user.company %></td>
         <td><% if current_user %>
-       <%= link_to "Delete", booking_path(booking), :class => "btn btn-default btn-sm",
+       <%= link_to "Delete", booking_path(booking), :class => "btn btn-default",
        method: :delete,
        data: { confirm: "Are you sure?" } %>
        <% end %>
