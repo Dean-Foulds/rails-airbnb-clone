@@ -70,17 +70,18 @@
   <script>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
+      handler.buildMap({ provider: { scrollwheel: false, maxZoom: 16}, internal: { id: 'map' } }, function() {
         var map = handler.getMap();
-
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
-        if (markers.length == 0) {
-          map.setZoom(6);
-        } else if (markers.length == 1) {
-          map.setZoom(14);
-        }
+        // map.setZoom(14);
+        // if (markers.length == 0) {
+        //   map.setZoom(6);
+        // } else if (markers.length == 1) {
+        //   map.setZoom(14);
+        // }
+
 
         var infowindow = new google.maps.InfoWindow();
 
