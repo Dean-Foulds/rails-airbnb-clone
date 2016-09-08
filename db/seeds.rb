@@ -17,7 +17,7 @@ User.destroy_all
 
 
 puts "Fetching Properties from API..."
-url = "http://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=tower_hamlets"
+url = "http://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=crystal_palace"
 property_serialized = open(url).read
 properties = JSON.parse(property_serialized)
 properties["response"]["listings"].each do |p|
