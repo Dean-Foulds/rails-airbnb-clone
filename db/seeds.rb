@@ -20,13 +20,22 @@ puts "Fetching Properties from API..."
 url = "http://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=crystal_palace"
 property_serialized = open(url).read
 properties = JSON.parse(property_serialized)
+puts "Found #{properties.count} properties..."
 properties["response"]["listings"].each do |p|
-  puts "creating #{p["title"]}"
-  home = Home.new(comments: p["summary"], room_type: p["property_type"], latitude: p["latitude"], longitude: p["longitude"], address: p["title"], room_type: Home::TYPE.sample)
+  puts "creating #{p["title"]}..."
+  home = Home.new(comments: p["summary"], room_type: p["property_type"], latitude: p["latitude"], longitude: p["longitude"], address: p["title"])
+  if p["img_url"]
+    begin
+      home.pictures = [ open(p["img_url"]) ]
+    rescue
+      puts "Skipping image..."
+    end
+  end
   user = User.new(
-      first_name: Faker::Name.name,
-      email: Faker::Internet.email
-    )
+    first_name: Faker::Name.name,
+    email: Faker::Internet.email
+  )
+  user.disable_welcome_email = true
   user.save(validate: false)
   home.user = user
   home.save(validate: false)
