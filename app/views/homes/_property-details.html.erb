@@ -30,7 +30,9 @@ else
         <h3>  <%= @home.post_code %> </h3>
 
 
-      <p><%= @home.comments %></p> <br>
+      <p><%= @home.comments %></p>
+
+
 
       <div class="text-left">
         <% if policy(@home).update? %>
