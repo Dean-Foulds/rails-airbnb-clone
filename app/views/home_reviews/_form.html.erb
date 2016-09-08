@@ -1,0 +1,6 @@
+<%= simple_form_for [home_review.home, home_review], remote: true do |f| %>
+  <%= f.input :content, as: :text, placeholder: "What was your experience?" %>
+  <%= f.input :repair_report, as: :text, placeholder: "What is state of repair?" %>
+  <%= f.input :rating, :collection => [1,2,3,4,5], :include_blank => false %>
+  <%= f.submit "Add review", class: "btn btn-primary" %>
+<% end %>

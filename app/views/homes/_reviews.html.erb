@@ -1,24 +1,10 @@
 <div class="col-xs-6">
-  <%= simple_form_for [@home, @home_review] do |f| %>
-  <%= f.input :content, as: :text, placeholder: "What was your experience?" %>
-  <%= f.input :repair_report, as: :text, placeholder: "What is state of repair?" %>
-  <%= f.input :rating, :collection => [1,2,3,4,5] %>
-  <%= f.submit "Add review", class: "btn btn-primary" %>
-  <% end %>
+  <%= render "home_reviews/form", home_review: @home_review %>
 </div>
 
-<div class="col-xs-6">
-    <% @home.home_reviews.each do |r| %>
-  <div class="well well-sm">
-      <p><small><%= r.created_at %> </small></p>
-      <p><%= r.repair_report%></p>
-      <p><%= r.content %></p>
-    <div class="stars">
-      <% r.rating.times do %>
-      <i class="fa fa-star text-primary"></i>
-      <% end %>
-    </div>
-  </div>
+<div class="col-xs-6" id="home_reviews">
+  <% @home.home_reviews.each do |r| %>
+    <%= render "home_reviews/show", home_review: r %>
   <% end %>
 </div>
 

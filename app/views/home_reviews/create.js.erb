@@ -1,0 +1,13 @@
+<% if @home_review.errors.any? %>
+  // Render new review form with errors
+  $('#new_home_review').html("<%= j render 'home_reviews/form', home_review: @home_review %>");
+<% else %>
+  // Create a paragraph for the new review. But hide it. Also how to add the date, repairs and ratings
+  var newHomeReview = $("<%= j render 'show', home_review: @home_review %>").hide();
+  // Add it to the DOM, at the end of the existing reviews. It's still hidden.
+  $('#home_reviews').append(newHomeReview);
+  // Show the new review with an animation!
+  newHomeReview.slideDown();
+  // Remove the text from the content textarea.
+  $('#home_review_content').val('');
+<% end %>
