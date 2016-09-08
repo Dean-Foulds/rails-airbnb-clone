@@ -24,13 +24,14 @@ blockquote p {
 .snip1552 {
   font-family: 'Source Sans Pro', sans-serif;
   position: relative;
+  border: 1px solid white;
   display: inline-block;
   overflow: hidden;
   margin: 8px;
   min-width: 230px;
   max-width: 315px;
   width: 100%;
-  color: #000000;
+  color: #FF7518;
   text-align: left;
   font-size: 16px;
   background-color: #fff;
@@ -45,7 +46,7 @@ blockquote p {
 
 .snip1552 img {
   vertical-align: top;
-  max-width: 100%;
+  height: 320px;
   backface-visibility: hidden;
 }
 
