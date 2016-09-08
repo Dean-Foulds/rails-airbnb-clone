@@ -46,12 +46,12 @@ else
 
       <div class="status">
 
-        <% if @home.status == "" %>
+        <% if @home.home_status == "" %>
           No status
         <% else %>
           <div class="logo-block">
             <i class="fa fa-key" aria-hidden="true"></i>
-            <p> <%= @home.status %></p>
+            <p> <%= @home.home_status %></p>
           </div>
         <% end %>
 

@@ -4,7 +4,7 @@ class HomesController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def index# GET /index
-    @homes = policy_scope(Home).where(status: "available")
+    @homes = policy_scope(Home).where(home_status: "available")
     @homes = @homes.near(params[:address], 5) if params[:address].present?
     @homes = @homes.where(room_type: params[:types]) if params[:types].present? && params[:types].any?
     @homes = @homes.where(number_of_rooms: params[:rooms]) if params[:rooms].present?
@@ -69,6 +69,6 @@ class HomesController < ApplicationController
   end
 
   def home_params
-    params.require(:home).permit(:address, :post_code, :room_type, :number_of_rooms, :status, :comments, :pictures => [])
+    params.require(:home).permit(:address, :post_code, :room_type, :number_of_rooms, :home_status, :comments, :pictures => [])
   end
 end

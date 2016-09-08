@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905150349) do
+ActiveRecord::Schema.define(version: 20160908114621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20160905150349) do
     t.string   "room_type"
     t.integer  "number_of_rooms"
     t.integer  "radius"
-    t.string   "status",                 default: "available"
     t.string   "area"
     t.string   "comments"
     t.datetime "created_at",                                   null: false
