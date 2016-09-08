@@ -1,67 +1,67 @@
 <!-- SEARCH FORM  -->
 
-<div class="banner-blue">
+<div class="banner-light-grey">
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="search-pop-out gray-lt">
-          <!-- post code search box -->
-          <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
-          <%= text_field_tag :address, params[:address], :placeholder => "Enter Full Postcode", :class => 'form-control' %>
-
-          <!-- types of home -->
-          <br /> <br />
-            <% Home::TYPE.each do |type| %>
-
-            <label for="Type">
-              <input type="checkbox" value="<%= type %>" name="types[]" id="<%= type %>"
-              </label>
-              &nbsp;&nbsp;<%= type %>
-              <% checked = params[:types].include?(type) ? "checked" : "" if params[:types] %>
-            <% end %>
-
-            <br /> <br />
-
-          <!-- number of rooms -->
-            <% Home::NUMBER_OF_ROOMS.each do |room| %>
-            <label for="<%= room %>">
-              <%= room %>
-              <% checked = params[:rooms].include?(room) ? "checked" : "" if params[:rooms] %>
-              <input type="radio" value="<%= room %>" name="rooms[]" id="<%= room %>" <%= checked %>
-            </label>
-            <% end %>
-
-
-          <!-- search button -->
-          <div class="form-group">
-            <%= submit_tag 'Search', class: "btn btn-default" %>
-          </div>
-          <% end %>
-        </div>
+  <div class="search-pop-out gray-lt">
+    <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
+      <div class="search-element">
+        <!-- post code search box -->
+        <span>Search by zipcode</span>
+        <%= text_field_tag :address, params[:address], :placeholder => "Enter Full Postcode", :class => 'form-control' %>
       </div>
 
-      <div class="col-md-9" style="padding-top: 25px;">
-        <div id="map" class="map">
-        </div>
-        <div class="section-h1-white">Property listings</div>
-          <% @homes.each do |home| %>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-              <div class="card-gray">
-                <div class="card-padded" style="background-image: url('<%= home.pictures.first ? cl_image_path(home.pictures.first.path) : nil %>')">
-                </div>
-                <div class="card-details">
-                  <%= home.address %>
-                  <%= home.post_code %>
-                  <%= home.status %>
-                </div>
-                <%= link_to "#", home_path(home), class: "card-link" %>
-
-              </div>
-            </div>
+      <!-- types of home -->
+      <div class="search-element">
+        <span>Property type</span>
+        <% Home::TYPE.each do |type| %>
+        <% checked = params[:types].include?(type) ? "checked" : "" if params[:types] %>
+          <div class="check-element">
+            <label for="Type"><%= type %></label>
+            <input type="checkbox" value="<%= type %>" name="types[]" id="<%= type %>">
+          </div>
         <% end %>
       </div>
+
+      <!-- number of rooms -->
+      <div class="search-element">
+        <span>Number of rooms</span>
+        <% Home::NUMBER_OF_ROOMS.each do |room| %>
+        <% checked = params[:rooms].include?(room) ? "checked" : "" if params[:rooms] %>
+          <div class="check-element">
+            <label for="<%= room %>">
+              <%= room %>
+            </label>
+            <input type="radio" value="<%= room %>" name="rooms[]" id="<%= room %>">
+          </div>
+        <% end %>
+      </div>
+
+      <!-- search button -->
+      <div class="form-group">
+        <%= submit_tag 'Search', class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="search-results">
+    <div id="map" class="map">
     </div>
+    <h1>Property listings</h1>
+      <% @homes.each do |home| %>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <div class="card-gray">
+            <div class="card-padded" style="background-image: url('<%= home.pictures.first ? cl_image_path(home.pictures.first.path) : nil %>')">
+            </div>
+            <div class="card-details">
+              <%= home.address %>
+              <%= home.post_code %>
+              <%= home.status %>
+            </div>
+            <%= link_to "#", home_path(home), class: "card-link" %>
+
+          </div>
+        </div>
+    <% end %>
   </div>
 </div>
 
@@ -70,7 +70,7 @@
   <script>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
+      handler.buildMap({ provider: {scrollwheel: false}, internal: { id: 'map' } }, function() {
         var map = handler.getMap();
 
         markers = handler.addMarkers(<%= raw @hash.to_json %>);

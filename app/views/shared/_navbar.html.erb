@@ -1,26 +1,24 @@
 <nav class="navbar1 navbar-custom">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <%= image_tag "Bug.png", :alt=> "logo", :height => '50px' %>
-    </div>
+    <%= link_to root_path do %>
+      <div class="navbar-header">
+        <%= image_tag "Bug.png", :alt=> "logo", :height => '50px' %>
+         <h1 class="homebug">Home Bug</h1>
+      </div>
+    <% end %>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 
+
       <ul class="nav navbar-nav navbar-right">
-        <li >
-          <%= link_to t(".top_call_to_action", default: "Home"), root_path %>
-        </li>
         <li>
           <%= link_to t(".top_call_to_action", default: "Search"), homes_path %>
         </li>
         <li>
-          <%= link_to t(".top_call_to_action", default: "Add property"), new_home_path %>
-        </li>
-        <li>
-          <%= link_to t(".top_call_to_action", default: "Contact"), contact_path %>
+          <%= link_to t(".top_call_to_action", default: "Contact us"), contact_path %>
         </li>
 
         <!-- DROP DOWN PROFILE if logged in -->

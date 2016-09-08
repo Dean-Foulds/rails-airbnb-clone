@@ -10,15 +10,38 @@
   position: relative;
   z-index: 10;
   h3 {
-    margin-bottom: 55px;
+    margin: 60px 0 30px;
+    font-weight: normal;
+  }
+
+  .home-cta {
+    position: relative;
+    display: block;
+    background-color: #ef7422;
+    color: white;
+    max-width: 275px;
+    padding: 10px 0;
+    font-size: 18px;
+    border-radius: 32px;
+    border: 1px solid white;
+    margin: 0 auto 45px;
+
+    &:hover {
+      text-decoration: none;
+      outline: none;
+      background-color: #ea833f;
+    }
   }
 
 }
 
 .landlord-section {
-  padding: 120px 0 0 !important;
+  padding: 50px 0 0 !important;
   margin: 0 !important;
 
+  h2 {
+    margin-bottom: 65px;
+  }
 
   .row-left {
     background: -webkit-linear-gradient(-115deg, #FF7518 36%,  #fff 36%);

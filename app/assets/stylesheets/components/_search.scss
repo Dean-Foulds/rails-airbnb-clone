@@ -1,14 +1,55 @@
 .search-pop-out {
   position: fixed;
-  width: 17%;
+  width: 20%;
   padding: 30px 20px;
-  margin-top: 90px;
+  margin-top: 65px;
   z-index: 50;
   top: 0;
   left: 0;
   bottom: 0;
+  color: white;
+
+  .search-element {
+    margin: 20px 0;
+
+    span {
+      display: block;
+      margin-bottom: 10px !important;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .check-element {
+      display: flex;
+
+      label {
+        order: 2;
+        margin-left: 10px;
+        font-weight: 400;
+      }
+
+      input {
+        order: 1;
+      }
+    }
+  }
+
+  .form-group {
+    width: 100%;
+    .btn {
+      width: 100% !important;
+    }
+  }
 }
 
+.search-results {
+  width: 80%;
+  margin-left: 20%;
 
-
-
+  h1 {
+    background-color: #ff7518;
+    margin: 0;
+    padding: 20px;
+    color: white;
+  }
+}
