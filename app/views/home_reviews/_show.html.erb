@@ -1,7 +1,7 @@
 <div class="well well-sm">
     <p><small><%= home_review.created_at %> </small></p>
-    <p><%= home_review.repair_report%></p>
-    <p><%= home_review.content %></p>
+    <p>Review: <%= home_review.content %></p>
+    <p>Repair status: <%= home_review.repair_report%></p>
   <div class="stars">
     <% home_review.rating.times do %>
     <i class="fa fa-star text-primary"></i>
