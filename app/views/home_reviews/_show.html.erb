@@ -1,0 +1,10 @@
+<div class="well well-sm">
+    <p><small><%= home_review.created_at %> </small></p>
+    <p><%= home_review.repair_report%></p>
+    <p><%= home_review.content %></p>
+  <div class="stars">
+    <% home_review.rating.times do %>
+    <i class="fa fa-star text-primary"></i>
+    <% end %>
+  </div>
+</div>
