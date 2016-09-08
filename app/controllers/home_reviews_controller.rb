@@ -1,5 +1,6 @@
 class HomeReviewsController < ApplicationController
 
+  # skip_before_action :authenticate_user!
   before_action :set_home
   # before_action :set_user
 
@@ -8,10 +9,21 @@ class HomeReviewsController < ApplicationController
     authorize @home_review
     @home_review.home = @home
     if @home_review.save
-      redirect_to home_path(@home)
+      respond_to do |format|
+        format.html { redirect_to home_path(@home) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-        render "home/show"
+      respond_to do |format|
+        format.html { render 'homes/show' }
+        format.js  # <-- idem
+      end
     end
+    # if @home_review.save
+    #   redirect_to home_path(@home)
+    # else
+    #   render :new
+    # end
   end
 
 
