@@ -1,39 +1,49 @@
 <!-- SEARCH FORM  -->
 
 <div class="banner-blue">
-  <div class="container-fluid" style="padding: 0;">
-    <div id="map" class="map">
-    </div>
-  </div>
 
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="col-md-3">
-
-      <div class="search-pop-out gray-dk">
+        <div class="search-pop-out gray-lt">
+          <!-- post code search box -->
           <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
           <%= text_field_tag :address, params[:address], :placeholder => "Enter Full Postcode", :class => 'form-control' %>
-          <% Home::TYPE.each do |type| %> <br>
 
-          <label for="Type">
-            <%= type %>
-            <% checked = params[:types].include?(type) ? "checked" : "" if params[:types] %>
-            <input type="checkbox" value="<%= type %>" name="types[]" id="<%= type %>" <%= checked %>
-          </label>
-          <% end %>
-          <% Home::NUMBER_OF_ROOMS.each do |room| %>
-          <label for="<%= room %>">
-            <%= room %>
-            <% checked = params[:rooms].include?(room) ? "checked" : "" if params[:rooms] %>
-            <input type="checkbox" value="<%= room %>" name="rooms[]" id="<%= room %>" <%= checked %>>
-          </label>
-          <% end %>
-          <%= submit_tag 'Search', class: "btn btn-primary" %>
+          <!-- types of home -->
+          <br /> <br />
+            <% Home::TYPE.each do |type| %>
+
+            <label for="Type">
+              <input type="checkbox" value="<%= type %>" name="types[]" id="<%= type %>"
+              </label>
+              &nbsp;&nbsp;<%= type %>
+              <% checked = params[:types].include?(type) ? "checked" : "" if params[:types] %>
+            <% end %>
+
+            <br /> <br />
+
+          <!-- number of rooms -->
+            <% Home::NUMBER_OF_ROOMS.each do |room| %>
+            <label for="<%= room %>">
+              <%= room %>
+              <% checked = params[:rooms].include?(room) ? "checked" : "" if params[:rooms] %>
+              <input type="radio" value="<%= room %>" name="rooms[]" id="<%= room %>" <%= checked %>
+            </label>
+            <% end %>
+
+
+          <!-- search button -->
+          <div class="form-group">
+            <%= submit_tag 'Search', class: "btn btn-default" %>
+          </div>
           <% end %>
         </div>
       </div>
 
-      <div class="col-md-9">
+      <div class="col-md-9" style="padding-top: 25px;">
+        <div id="map" class="map">
+        </div>
         <div class="section-h1-white">Property listings</div>
           <% @homes.each do |home| %>
             <div class="col-xs-6 col-sm-4 col-md-3">
