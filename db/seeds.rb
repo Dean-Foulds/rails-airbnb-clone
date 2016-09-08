@@ -22,7 +22,7 @@ property_serialized = open(url).read
 properties = JSON.parse(property_serialized)
 properties["response"]["listings"].each do |p|
   puts "creating #{p["title"]}"
-  home = Home.new(latitude: p["latitude"], longitude: p["longitude"], address: p["title"], room_type: Home::TYPE.sample)
+  home = Home.new(comments: p["summary"], room_type: p["property_type"], latitude: p["latitude"], longitude: p["longitude"], address: p["title"], room_type: Home::TYPE.sample)
   user = User.new(
       first_name: Faker::Name.name,
       email: Faker::Internet.email
