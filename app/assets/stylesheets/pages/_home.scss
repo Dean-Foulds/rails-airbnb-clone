@@ -6,11 +6,18 @@
 .attachinary-container li {
   list-style: none;
 }
+.z-layer{
+  z-index: 10;
+  position: relative;
+}
+
+
 .home-header {
   position: relative;
   z-index: 10;
+
   h3 {
-    margin: 60px 0 30px;
+    margin: 165px 0 30px;
     font-weight: normal;
   }
 

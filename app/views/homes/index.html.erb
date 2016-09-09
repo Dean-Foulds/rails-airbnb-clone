@@ -1,14 +1,14 @@
 <!-- SEARCH FORM  -->
 <%= render "head" %>
 
-<div class="banner-light-grey">
+<div class="banner-light-grey-no-marg-top">
 
   <div class="search-pop-out gray-lt">
     <%= form_tag(homes_path, :method => 'get', class: "form-inline") do %>
       <div class="search-element">
         <!-- post code search box -->
-        <span>Search by zipcode</span>
-        <%= text_field_tag :address, params[:address], :placeholder => "Enter Full Postcode", :class => 'form-control' %>
+        <span>Search by postcode</span>
+        <%= text_field_tag :address, params[:address], :placeholder => "Enter full postcode", :class => 'form-control' %>
       </div>
 
       <!-- types of home -->
