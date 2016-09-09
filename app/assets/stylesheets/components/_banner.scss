@@ -3,8 +3,6 @@
 }
 .contact-form {
     color: white;
-    margin-top: 50px;
-    margin-bottom: 50px;
     background-color: rgba(255, 255, 255, 0.2);
     padding: 3rem;
     border-radius: 0 1rem 1rem 1rem;
@@ -50,7 +48,13 @@
 }
 
 .banner-light-grey {
+  padding-top: 90px;
   background: #e4ded8;
+  min-height: 100vh;
+}
+.banner-light-grey-no-marg-top {
+    background: #e4ded8;
+    min-height: 100vh;
 }
 
 .banner-green {
@@ -59,6 +63,7 @@
   background: linear-gradient(to left, #ADD100 , #7B920A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .banner-blue {
+  padding-top: 90px;
   min-height: 100vh;
   background: #43cea2; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
   background: -webkit-linear-gradient(right, #43cea2, #185a9d);
