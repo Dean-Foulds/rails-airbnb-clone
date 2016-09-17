@@ -41,11 +41,6 @@ class HomesController < ApplicationController
 
   def update
 
-    if @home.update(home_params)
-      redirect_to home_path(@home)
-    else
-      render :edit
-    end
   end
 
   def destroy
