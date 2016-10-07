@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   attr_accessor :disable_welcome_email
 
-  after_create :send_welcome_email
+  after_create :subscribe_to_newsletter
 
 
   has_many :homes
@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   private
 
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now unless self.disable_welcome_email
+  def subscribe_to_newsletter
+    SubscribeToNewsletterService.new(self).call
   end
 end
